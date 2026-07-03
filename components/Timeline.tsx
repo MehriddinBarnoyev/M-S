@@ -1,0 +1,88 @@
+"use client";
+
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+import { content } from "@/lib/content";
+import { SectionTitle } from "@/components/ui";
+
+function HeartMark() {
+  return (
+    <div className="relative z-10 flex h-10 w-10 items-center justify-center">
+      <div className="absolute inset-0 rounded-full bg-rosegold/15 blur-md" />
+      <div className="glass flex h-10 w-10 items-center justify-center rounded-full border-rosegold/30">
+        <svg viewBox="0 0 24 24" className="h-4 w-4 text-rosegold" fill="currentColor" aria-hidden="true">
+          <path d="M12 21s-6.7-4.35-9.33-8.11C.9 10.36 1.7 6.86 4.5 5.5c2.04-.99 4.46-.3 5.86 1.43L12 8.6l1.64-1.67c1.4-1.73 3.82-2.42 5.86-1.43 2.8 1.36 3.6 4.86 1.83 7.39C18.7 16.65 12 21 12 21z" />
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+export default function Timeline() {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start 75%", "end 60%"],
+  });
+  const lineScale = useTransform(scrollYProgress, [0, 1], [0, 1]);
+
+  return (
+    <section className="relative px-6 py-28 sm:py-40">
+      <SectionTitle script="chapter by chapter" title="Our Story" />
+
+      <div ref={ref} className="relative mx-auto max-w-3xl">
+        {/* Growing spine */}
+        <div className="absolute left-5 top-0 h-full w-px bg-white/10 sm:left-1/2" />
+        <motion.div
+          style={{ scaleY: lineScale }}
+          className="absolute left-5 top-0 h-full w-px origin-top bg-gradient-to-b from-champagne via-rosegold to-champagne shadow-[0_0_12px_rgba(232,180,184,0.6)] sm:left-1/2"
+        />
+
+        <div className="space-y-20 sm:space-y-28">
+          {content.timeline.map((item, i) => {
+            const left = i % 2 === 0;
+            return (
+              <div
+                key={item.title}
+                className={`relative flex items-start gap-6 pl-0 sm:gap-0 ${
+                  left ? "sm:flex-row" : "sm:flex-row-reverse"
+                }`}
+              >
+                <div className="absolute left-0 sm:left-1/2 sm:-translate-x-1/2">
+                  <motion.div
+                    initial={{ scale: 0, opacity: 0 }}
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    viewport={{ once: true, amount: 0.8 }}
+                    transition={{ duration: 0.7, type: "spring", bounce: 0.45 }}
+                  >
+                    <HeartMark />
+                  </motion.div>
+                </div>
+
+                <motion.div
+                  initial={{ opacity: 0, x: left ? -60 : 60, filter: "blur(8px)" }}
+                  whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+                  viewport={{ once: true, amount: 0.5 }}
+                  transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
+                  className={`glass ml-16 w-full rounded-3xl p-7 sm:ml-0 sm:w-[calc(50%-3.5rem)] sm:p-8 ${
+                    left ? "sm:mr-auto sm:text-right" : "sm:ml-auto"
+                  }`}
+                >
+                  <p className="font-sans text-[10px] uppercase tracking-[0.35em] text-champagne/80">
+                    {item.date}
+                  </p>
+                  <h3 className="mt-3 font-serif text-2xl text-pearl sm:text-3xl">
+                    {item.title}
+                  </h3>
+                  <p className="mt-4 font-sans text-sm font-light leading-relaxed text-pearl/70 sm:text-base">
+                    {item.text}
+                  </p>
+                </motion.div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}

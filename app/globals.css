@@ -1,0 +1,192 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --glow-rose: rgba(232, 180, 184, 0.55);
+  --glow-gold: rgba(243, 217, 164, 0.5);
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+body {
+  background: #050510;
+  color: #fdf6ee;
+  overflow-x: hidden;
+}
+
+@media (pointer: fine) {
+  body.fx-cursor,
+  body.fx-cursor a,
+  body.fx-cursor button {
+    cursor: none;
+  }
+}
+
+::selection {
+  background: rgba(232, 180, 184, 0.35);
+  color: #fff;
+}
+
+/* ── Scrollbar ─────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #050510;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#c98a90, #d4af6a);
+  border-radius: 8px;
+}
+
+/* ── Reusable luxury utilities ─────────────────────────── */
+.glass {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0.03)
+  );
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.text-gradient-gold {
+  background: linear-gradient(110deg, #f3d9a4 15%, #fff6e6 40%, #e8b4b8 65%, #f3d9a4 90%);
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shine 6s linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position: 220% center;
+  }
+}
+
+.glow-soft {
+  text-shadow:
+    0 0 24px var(--glow-rose),
+    0 0 64px rgba(232, 180, 184, 0.25);
+}
+
+.glow-gold {
+  text-shadow:
+    0 0 20px var(--glow-gold),
+    0 0 60px rgba(243, 217, 164, 0.22);
+}
+
+/* ── Aurora ────────────────────────────────────────────── */
+.aurora {
+  position: absolute;
+  inset: -20%;
+  filter: blur(70px) saturate(130%);
+  opacity: 0.5;
+  pointer-events: none;
+}
+.aurora::before,
+.aurora::after {
+  content: "";
+  position: absolute;
+  width: 60vw;
+  height: 46vh;
+  border-radius: 50%;
+  mix-blend-mode: screen;
+}
+.aurora::before {
+  top: 4%;
+  left: 8%;
+  background: radial-gradient(ellipse at center, rgba(84, 120, 190, 0.5), transparent 65%);
+  animation: aurora-drift-a 26s ease-in-out infinite alternate;
+}
+.aurora::after {
+  top: 12%;
+  right: 4%;
+  background: radial-gradient(ellipse at center, rgba(201, 138, 144, 0.42), transparent 65%);
+  animation: aurora-drift-b 32s ease-in-out infinite alternate;
+}
+@keyframes aurora-drift-a {
+  from { transform: translate(-6%, -4%) rotate(-8deg) scale(1); }
+  to { transform: translate(10%, 8%) rotate(10deg) scale(1.25); }
+}
+@keyframes aurora-drift-b {
+  from { transform: translate(6%, 6%) rotate(6deg) scale(1.15); }
+  to { transform: translate(-8%, -6%) rotate(-10deg) scale(0.95); }
+}
+
+/* ── Moon ──────────────────────────────────────────────── */
+.moon {
+  background: radial-gradient(circle at 38% 34%, #fffdf5 0%, #f5ecd8 45%, #d9cdb2 100%);
+  box-shadow:
+    0 0 40px 8px rgba(255, 250, 230, 0.5),
+    0 0 140px 50px rgba(255, 246, 214, 0.18),
+    inset -14px -12px 34px rgba(160, 148, 118, 0.45);
+}
+
+/* ── Polaroid ──────────────────────────────────────────── */
+.polaroid {
+  background: linear-gradient(180deg, #fffdf8, #f4ecdf);
+  box-shadow:
+    0 18px 44px rgba(0, 0, 0, 0.5),
+    0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s ease;
+  will-change: transform;
+}
+.polaroid:hover {
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.55),
+    0 0 40px rgba(232, 180, 184, 0.25);
+}
+
+/* ── Letter paper ──────────────────────────────────────── */
+.letter-paper {
+  background:
+    linear-gradient(180deg, rgba(255, 252, 244, 0.99), rgba(248, 240, 226, 0.99));
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.55),
+    inset 0 0 60px rgba(196, 168, 118, 0.12);
+}
+
+/* ── Buttons ───────────────────────────────────────────── */
+.btn-yes {
+  background: linear-gradient(120deg, #c98a90, #e8b4b8 45%, #d4af6a);
+  background-size: 200% auto;
+  box-shadow:
+    0 10px 34px rgba(201, 138, 144, 0.45),
+    0 0 60px rgba(232, 180, 184, 0.3);
+  transition: background-position 0.5s ease, transform 0.25s ease, box-shadow 0.3s ease;
+}
+.btn-yes:hover {
+  background-position: 100% center;
+  transform: translateY(-2px) scale(1.04);
+  box-shadow:
+    0 16px 44px rgba(201, 138, 144, 0.6),
+    0 0 90px rgba(232, 180, 184, 0.45);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
