@@ -8,8 +8,10 @@ import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment
  * The 3D finale: a glass crystal heart slowly turning above
  * a golden diamond ring, wrapped in drifting gold sparkles.
  */
-export default function CrystalScene() {
+export default function CrystalScene({ calm = false }: { calm?: boolean }) {
   const mountRef = useRef<HTMLDivElement>(null);
+  const calmRef = useRef(calm);
+  calmRef.current = calm; // updated each render; read inside the animation loop
 
   useEffect(() => {
     const mount = mountRef.current;
@@ -183,10 +185,19 @@ export default function CrystalScene() {
     io.observe(mount);
 
     let raf = 0;
+    let frameN = 0;
     const clock = new THREE.Clock();
     const animate = () => {
       raf = requestAnimationFrame(animate);
       if (!visible) return;
+
+      // In "calm" mode (while she's using the date-planner) throttle to
+      // ~30fps and skip the per-particle sparkle update, so the 3D scene
+      // stops competing with the UI for the main thread.
+      const calm = calmRef.current;
+      frameN++;
+      if (calm && frameN % 2 === 0) return;
+
       const t = clock.getElapsedTime();
 
       heartGroup.rotation.y = t * 0.35;
@@ -199,11 +210,13 @@ export default function CrystalScene() {
       diamond.rotation.y = t * 1.2;
 
       sparkles.rotation.y = t * 0.06;
-      const pos = sparkleGeo.attributes.position as THREE.BufferAttribute;
-      for (let i = 0; i < sparkleCount; i++) {
-        pos.setY(i, pos.getY(i) + Math.sin(t * 1.4 + phases[i]) * 0.0012);
+      if (!calm) {
+        const pos = sparkleGeo.attributes.position as THREE.BufferAttribute;
+        for (let i = 0; i < sparkleCount; i++) {
+          pos.setY(i, pos.getY(i) + Math.sin(t * 1.4 + phases[i]) * 0.0012);
+        }
+        pos.needsUpdate = true;
       }
-      pos.needsUpdate = true;
 
       camera.position.x += (mouse.x * 0.5 - camera.position.x) * 0.03;
       camera.position.y += (0.2 - mouse.y * 0.35 - camera.position.y) * 0.03;

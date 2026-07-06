@@ -26,13 +26,33 @@ const inter = Inter({
   weight: ["300", "400", "500", "600"],
 });
 
+// If you deploy somewhere other than this URL, update it so the link
+// preview image resolves to an absolute URL on that domain.
+const SITE_URL = "https://my-dilnuraa.netlify.app";
+
 export const metadata: Metadata = {
-  title: "Something Special, Just For You",
-  description: "A story written in the stars.",
+  metadataBase: new URL(SITE_URL),
+  title: "A little surprise, made just for you",
+  description: "Someone made something special. Open me ♥",
   openGraph: {
-    title: "Something Special, Just For You",
-    description: "A story written in the stars.",
+    title: "A little surprise, made just for you",
+    description: "Someone made something special. Open me ♥",
     type: "website",
+    url: SITE_URL,
+    images: [
+      {
+        url: "/og-preview.png",
+        width: 1200,
+        height: 630,
+        alt: "A little surprise",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "A little surprise, made just for you",
+    description: "Someone made something special. Open me ♥",
+    images: ["/og-preview.png"],
   },
 };
 

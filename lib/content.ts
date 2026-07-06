@@ -6,22 +6,23 @@
  */
 
 export const content = {
-  herName: "My Love",
+  herName: "Dilnura",
 
   // The day you met — powers the live countdown. Format: YYYY-MM-DDTHH:mm:ss
-  metDate: "2023-02-14T19:30:00",
+  // ~7–8 years ago, in that English lesson.
+  metDate: "2018-09-15T10:00:00",
 
   intro: {
-    line: "Someone has something very special to tell you...",
+    line: "Dilnura... someone has been holding this in for almost 8 years.",
   },
 
   hero: {
-    kicker: "A story written in the stars",
-    title: "For You",
+    kicker: "Seven, almost eight years in the making",
+    title: "For Dilnura",
     typed: [
-      "This is not just a website...",
-      "This is everything I never said out loud...",
-      "This is my heart, open for you.",
+      "It started in an English lesson...",
+      "One look, and I never really looked away...",
+      "Almost 8 years later, I'm finally saying it.",
     ],
   },
 
@@ -29,80 +30,121 @@ export const content = {
   // Drop images into /public/photos and list them here.
   // If a file doesn't exist yet, an elegant placeholder is shown.
   photos: [
-    { src: "/photos/her-1.jpg", caption: "The smile that changed everything", rotate: -6 },
-    { src: "/photos/her-2.jpg", caption: "A queen among the roses", rotate: 4 },
-    { src: "/photos/her-3.jpg", caption: "Golden hour, golden you", rotate: -3 },
-    { src: "/photos/her-4.jpg", caption: "The look that stops my heart", rotate: 6 },
-    { src: "/photos/her-5.jpg", caption: "Brilliant. Beautiful. You.", rotate: -5 },
-    { src: "/photos/her-6.jpg", caption: "The night I couldn't look away", rotate: 3 },
+    { src: "/photos/her-1.jpg", caption: "Evening lights, and the way you looked away — I never could", rotate: -6 },
+    { src: "/photos/her-2.jpg", caption: "The gentleness in you — even the little ones feel it", rotate: 4 },
+    { src: "/photos/her-3.jpg", caption: "Love is life — and your smile has always been the proof", rotate: -3 },
+    { src: "/photos/her-4.jpg", caption: "A quiet café, white flowers, and only you in focus", rotate: 6 },
+    { src: "/photos/her-5.jpg", caption: "Those student years — where it all quietly began", rotate: -5 },
+    { src: "/photos/her-6.jpg", caption: "Spring, and a flower that still couldn't outshine you", rotate: 3 },
   ],
 
   // ── LOVE STORY TIMELINE ─────────────────────────────────────
   timeline: [
     {
-      date: "The Beginning",
-      title: "The day I first saw you",
-      text: "Time slowed down. The world went quiet. And somehow, I already knew my life had just changed forever.",
+      date: "~8 Years Ago",
+      title: "The English lesson",
+      text: "I walked into an ordinary English lesson and walked out with my whole world changed. You were sitting there — and time just slowed down. I didn't know your name yet, but somehow I already knew it mattered.",
     },
     {
-      date: "First Words",
-      title: "The day we talked",
-      text: "One conversation. That's all it took. I walked away smiling and I haven't stopped since.",
+      date: "All The Years Between",
+      title: "Knowing you, from near and far",
+      text: "Seven, almost eight years. Different classes, different paths, life pulling us in every direction — and still, not a single one of those years went by without you on my mind.",
     },
     {
       date: "The Realization",
-      title: "The day I knew you were different",
-      text: "Not different like anyone else. Different like no one else. Different like home.",
+      title: "It was always you",
+      text: "I kept waiting for the feeling to fade. It never did. Not different like anyone else — different like no one else. Different like home.",
     },
     {
-      date: "Every Day Since",
-      title: "Every beautiful memory",
-      text: "The laughs, the late nights, the quiet moments that meant everything. Each one led us here — to tonight.",
+      date: "Today",
+      title: "Why I'm finally saying it",
+      text: "I've stayed quiet for almost 8 years. I'm done staying quiet. To see you, to sit across from you just once — I'd give anything. So here I am, Dilnura, finally brave enough.",
     },
   ],
 
   // ── CINEMATIC MESSAGES (word-by-word reveal) ────────────────
   messages: [
-    "Some people search their whole lives for someone special...",
-    "I was lucky...",
-    "Because somehow...",
-    "I found you.",
+    "For almost 8 years I've known one thing for certain...",
+    "Through every year, every silence, every 'someday'...",
+    "It was always...",
+    "You, Dilnura.",
   ],
 
   // ── THE LOVE LETTER ─────────────────────────────────────────
   letter: {
-    greeting: "To the love of my life,",
+    greeting: "To Dilnura,",
     paragraphs: [
-      "I have started this letter a hundred times, and every version fell short — because there are no words big enough for what you are to me.",
-      "You are my calm in the chaos, my laughter on hard days, my favorite hello and my hardest goodbye. Loving you is the easiest thing I have ever done, and the most extraordinary.",
-      "I don't need forever to know. I knew the moment I met you. But I would love nothing more than to spend forever proving it.",
+      "I have started this letter a hundred times, and every version fell short — because how do you fit almost 8 years of quiet feelings into a few lines?",
+      "It began in an English lesson. I was supposed to be learning a language, and instead I learned you — your smile, the way you made an ordinary room feel warmer. I've known and cared for you ever since, through all these years, without ever really saying it.",
+      "I'm not asking for the world. I'm asking for one moment: to see you, to sit with you, just once. For that, I'd cross any distance and give anything. You've been worth every one of these years — and you'd be worth every one still to come.",
     ],
-    signoff: "Forever yours,",
+    signoff: "Yours, for almost 8 years now,",
     signature: "Me",
   },
 
   // ── THE QUESTION ────────────────────────────────────────────
   proposal: {
-    lead: "So there is only one thing left to ask...",
-    question: "Will You Marry Me?",
+    lead: "After almost 8 years, there's only one thing left to ask...",
+    question: "Date With Me?",
+    // Personal note (shown just under the question)
+    note: "Dilnura — seni English darsida ko'rib qolganimdan beri, 7–8 yil bo'ldi, hali ham o'shasan. Seni bir bora ko'rish, yoningda bo'lish uchun hamma narsaga tayyorman.",
     yes: "YES",
-    notYet: "I need a little more time",
-    yesResponse: "You just made me the happiest person alive",
-    notYetResponse: "I'll wait... Because you're worth every second.",
+    notYet: "No",
+    yesResponse: "You just made almost 8 years of waiting worth it",
+    notYetResponse: "I'll wait... I've waited this long. You're worth every second.",
+  },
+
+  // ── THE DATE PLANNER (shown after she says YES) ─────────────
+  datePlanner: {
+    intro: "Deyarli 8 yil kutdim... endi esa birinchi uchrashuvimizni birga chizamiz. Har bir tanlov — seniki 💛",
+    steps: [
+      {
+        key: "place",
+        title: "Qayerda uchrashamiz?",
+        subtitle: "Aytgin — men o'sha yerni butun dunyodagi eng chiroyli joyga aylantiraman.",
+        options: ["Sham yoritilgan restoran", "Kichkina, shinam kafe", "Ko'l bo'yida, suv sadosi ostida", "Yulduzlar tagida — park", "Uyda — sen uchun o'zim pishiraman"],
+      },
+      {
+        key: "when",
+        title: "Qachon?",
+        subtitle: "Sen aytgan kun — mening yilimning eng go'zal kuni bo'ladi.",
+        options: ["Bugun — bir soniya ham kutolmayman", "Ertaga", "Shu hafta oxiri", "Sen ayt — men doim tayyorman"],
+      },
+      {
+        key: "food",
+        title: "Nima yeymiz, nimadan shirin?",
+        subtitle: "Menga baribir nima — muhimi ro'paramda sen o'tirasan.",
+        options: ["Milliy taomlar — issiq va mehr bilan", "Pitsa & birga kulgi", "Romantik steyk kechasi", "Tort va shirinliklar", "Bir kosadan muzqaymoq — ikkovimizga"],
+      },
+      {
+        key: "drink",
+        title: "Ichimlik?",
+        subtitle: "Qadahlarni to'qnashtiramiz — nihoyat, shu lahzaga.",
+        options: ["Issiq qahva, sokin suhbat", "Choy — uzoq gaplar uchun", "Smuzi / fresh", "Salqin limonad", "Issiq shokolad — sovuq kechada"],
+      },
+      {
+        key: "time",
+        title: "Kunduzimi yoki kechasi?",
+        subtitle: "Quyosh ostidami yoki yulduzlar tagida — ikkalasida ham sen porlaysan.",
+        options: ["Kunduzi ☀️ — yorug'likda", "Kun botganda 🌆 — oltin soatda", "Kechasi 🌙 — yulduzlar guvohligida"],
+      },
+    ],
+    doneTitle: "Bizning birinchi uchrashuvimiz 💫",
+    doneSubtitle: "Deyarli 8 yildan keyin — mana, boshlanishi. Endi buni haqiqatga aylantirish menga qoldi.",
   },
 
   // Optional: put an mp3 at /public/audio/voice-message.mp3
   // and the voice-message player will appear automatically.
   voiceMessage: {
     src: "/audio/voice-message.mp3",
-    label: "I recorded something for you...",
+    label: "Dilnura, I recorded something I've never had the courage to say...",
   },
 
   // Hidden easter-egg hearts — little secrets she can find.
   secrets: [
-    "You found a secret! Here it is: I smile every time your name lights up my phone.",
-    "Another secret: I kept the ticket from our first date.",
-    "Last secret: I practiced this moment in the mirror. Twice. Okay... many times.",
+    "You found a secret! Here it is: I still remember exactly where you sat in that English lesson.",
+    "Another secret: for almost 8 years, your name has been the one I never stopped thinking about.",
+    "Last secret: I rehearsed this a hundred times in my head. It took me 8 years to finally press 'send'.",
   ],
 };
 
