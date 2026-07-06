@@ -20,7 +20,7 @@ export default function Messages() {
             stagger={0.22}
             className={`max-w-3xl text-center font-serif leading-snug ${
               i === content.messages.length - 1
-                ? "text-gradient-gold glow-gold text-4xl sm:text-6xl md:text-7xl"
+                ? "text-solid-gold text-4xl sm:text-6xl md:text-7xl"
                 : "glow-soft text-3xl italic text-pearl/90 sm:text-5xl"
             }`}
           />

@@ -4,12 +4,15 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev:lan": "next dev -H 0.0.0.0",
+    "dev:https": "next dev -H 0.0.0.0 --experimental-https",
     "build": "next build",
     "start": "next start"
   },
   "dependencies": {
     "framer-motion": "^11.11.0",
     "gsap": "^3.12.5",
+    "html2canvas": "^1.4.1",
     "lenis": "^1.1.14",
     "next": "^14.2.15",
     "react": "^18.3.1",

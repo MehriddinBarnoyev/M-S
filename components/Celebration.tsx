@@ -46,6 +46,8 @@ export default function Celebration({ mode }: { mode: "soft" | "grand" }) {
 
     let lastLaunch = 0;
     let grandStarted = false;
+    let grandStartT = 0;
+    const GRAND_MS = 7000; // grand finale plays for ~7s, then the loop stops
 
     const explode = (x: number, y: number, hue: number, big: boolean) => {
       const n = big ? 70 : 36;
@@ -64,8 +66,8 @@ export default function Celebration({ mode }: { mode: "soft" | "grand" }) {
     };
 
     const spawnGrandExtras = () => {
-      const confettiCount = w < 640 ? 50 : 90;
-      const balloonCount = w < 640 ? 6 : 10;
+      const confettiCount = w < 640 ? 36 : 60;
+      const balloonCount = w < 640 ? 5 : 8;
       for (let i = 0; i < confettiCount; i++) {
         confetti.push({
           x: Math.random() * w,
@@ -98,6 +100,7 @@ export default function Celebration({ mode }: { mode: "soft" | "grand" }) {
       const grand = modeRef.current === "grand";
       if (grand && !grandStarted) {
         grandStarted = true;
+        grandStartT = t;
         if (!reduced) spawnGrandExtras();
         for (let i = 0; i < 5; i++) {
           explode(
@@ -109,9 +112,13 @@ export default function Celebration({ mode }: { mode: "soft" | "grand" }) {
         }
       }
 
-      // Launch rockets
+      // The grand finale is time-boxed; soft mode runs indefinitely.
+      const grandActive = grand && t - grandStartT < GRAND_MS;
+
+      // Launch rockets (only while active)
       const interval = grand ? 700 : 2600;
-      if (!reduced && t - lastLaunch > interval + Math.random() * interval) {
+      const mayLaunch = !reduced && (grand ? grandActive : true);
+      if (mayLaunch && t - lastLaunch > interval + Math.random() * interval) {
         lastLaunch = t;
         rockets.push({
           x: w * (0.15 + Math.random() * 0.7),
@@ -138,6 +145,9 @@ export default function Celebration({ mode }: { mode: "soft" | "grand" }) {
         }
       }
 
+      // Sparks drawn with additive blending for a glow — far cheaper
+      // than per-particle shadowBlur (a major mobile bottleneck).
+      ctx.globalCompositeOperation = "lighter";
       for (let i = sparks.length - 1; i >= 0; i--) {
         const s = sparks[i];
         s.x += s.vx;
@@ -153,13 +163,11 @@ export default function Celebration({ mode }: { mode: "soft" | "grand" }) {
         ctx.globalAlpha = s.life;
         ctx.beginPath();
         ctx.arc(s.x, s.y, s.size * s.life, 0, Math.PI * 2);
-        ctx.fillStyle = `hsla(${s.hue}, 90%, 74%, 1)`;
-        ctx.shadowColor = `hsla(${s.hue}, 90%, 70%, 1)`;
-        ctx.shadowBlur = 6;
+        ctx.fillStyle = `hsla(${s.hue}, 90%, 66%, 1)`;
         ctx.fill();
-        ctx.shadowBlur = 0;
-        ctx.globalAlpha = 1;
       }
+      ctx.globalAlpha = 1;
+      ctx.globalCompositeOperation = "source-over";
 
       for (let i = confetti.length - 1; i >= 0; i--) {
         const c = confetti[i];
@@ -179,11 +187,17 @@ export default function Celebration({ mode }: { mode: "soft" | "grand" }) {
         ctx.restore();
       }
 
-      for (const b of balloons) {
+      for (let i = balloons.length - 1; i >= 0; i--) {
+        const b = balloons[i];
         b.y += b.vy;
         if (b.y < -120) {
-          b.y = h + 80;
-          b.x = Math.random() * w;
+          if (grandActive) {
+            b.y = h + 80;
+            b.x = Math.random() * w;
+          } else {
+            balloons.splice(i, 1); // let them drift away once the finale ends
+            continue;
+          }
         }
         const x = b.x + Math.sin(t * 0.001 + b.phase) * b.sway * 0.3;
         ctx.save();
@@ -206,6 +220,20 @@ export default function Celebration({ mode }: { mode: "soft" | "grand" }) {
         ctx.ellipse(x, b.y, b.size * 0.82, b.size, 0, 0, Math.PI * 2);
         ctx.fill();
         ctx.restore();
+      }
+
+      // Once the finale has played out and nothing is left on screen,
+      // stop the loop entirely so it never competes with the date-planner.
+      if (
+        grand &&
+        !grandActive &&
+        rockets.length === 0 &&
+        sparks.length === 0 &&
+        confetti.length === 0 &&
+        balloons.length === 0
+      ) {
+        ctx.clearRect(0, 0, w, h);
+        return; // do not schedule another frame
       }
 
       raf = requestAnimationFrame(frame);

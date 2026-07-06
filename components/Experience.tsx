@@ -18,6 +18,8 @@ import VoiceMessage from "@/components/VoiceMessage";
 import LoveLetter from "@/components/LoveLetter";
 import Proposal from "@/components/Proposal";
 import HiddenHearts from "@/components/HiddenHearts";
+import SectionNotify from "@/components/SectionNotify";
+import { notify } from "@/lib/telegram";
 
 export default function Experience() {
   const [started, setStarted] = useState(false);
@@ -30,6 +32,11 @@ export default function Experience() {
       setShowIntro(false);
       setStarted(true);
     }
+  }, []);
+
+  // Let you know the moment she opens the surprise (fires once).
+  useEffect(() => {
+    notify("🌟 <b>Dilnura</b> surprise saytni ochdi.");
   }, []);
 
   // Buttery smooth scrolling
@@ -75,17 +82,39 @@ export default function Experience() {
       <div className="relative z-10">
         <Hero started={started} />
 
-        <section className="relative px-6 py-20 sm:py-28">
-          <Countdown />
-        </section>
+        <SectionNotify message="⏳ <b>Dilnura</b> — kutilgan kunlar sanog'ini ko'rdi.">
+          <section className="relative px-6 py-20 sm:py-28">
+            <Countdown />
+          </section>
+        </SectionNotify>
 
-        <Messages />
-        <PhotoStory />
-        <Timeline />
-        <Constellation />
-        <VoiceMessage />
-        <LoveLetter />
-        <Proposal onEnter={onProposalInView} />
+        <SectionNotify message="🎬 <b>Dilnura</b> — yashirin so'zlarni o'qiy boshladi.">
+          <Messages />
+        </SectionNotify>
+
+        <SectionNotify message="📸 <b>Dilnura</b> — rasmlar bo'limiga yetdi.">
+          <PhotoStory />
+        </SectionNotify>
+
+        <SectionNotify message="📖 <b>Dilnura</b> — bizning hikoyamizni (timeline) ko'rmoqda.">
+          <Timeline />
+        </SectionNotify>
+
+        <SectionNotify message="✨ <b>Dilnura</b> — yulduzlar bo'limiga yetdi.">
+          <Constellation />
+        </SectionNotify>
+
+        <SectionNotify message="🎙 <b>Dilnura</b> — ovozli xabar bo'limiga yetdi.">
+          <VoiceMessage />
+        </SectionNotify>
+
+        <SectionNotify message="💌 <b>Dilnura</b> — SEVGI XATINI ochdi.">
+          <LoveLetter />
+        </SectionNotify>
+
+        <SectionNotify message="💍 <b>Dilnura</b> — asosiy savol (taklif) bo'limiga yetdi!">
+          <Proposal onEnter={onProposalInView} />
+        </SectionNotify>
 
         <footer className="relative z-10 pb-14 pt-6 text-center">
           <p className="font-script text-2xl text-rosegold/70">

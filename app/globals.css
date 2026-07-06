@@ -72,13 +72,38 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  -webkit-text-fill-color: transparent;
   animation: shine 6s linear infinite;
+}
+
+/*
+ * On WebKit/iOS, text-shadow bleeds THROUGH clipped (transparent-fill)
+ * gradient text and washes it out. When gradient text also needs a glow,
+ * drop it in as a drop-shadow filter instead — it respects the glyph shape
+ * and keeps the letters crisp.
+ */
+.text-gradient-gold.glow-gold {
+  text-shadow: none;
+  filter:
+    drop-shadow(0 0 14px rgba(243, 217, 164, 0.55))
+    drop-shadow(0 0 34px rgba(243, 217, 164, 0.28));
 }
 
 @keyframes shine {
   to {
     background-position: 220% center;
   }
+}
+
+/*
+ * Solid gold — for text that is split into animated spans (e.g. WordReveal),
+ * where background-clip:text gradients drop out on WebKit. Guaranteed visible.
+ */
+.text-solid-gold {
+  color: #f6dfa9;
+  text-shadow:
+    0 0 18px rgba(243, 217, 164, 0.55),
+    0 0 44px rgba(243, 217, 164, 0.3);
 }
 
 .glow-soft {
