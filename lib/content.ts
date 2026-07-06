@@ -110,11 +110,10 @@ export const content = {
           "Italyan restorani — pasta va sokin musiqa",
           "Ko'l bo'yida, suv sadosi ostida",
           "Yulduzlar tagida — park",
-          "Magic City — chiroqlar ertagi ichida",
-          "Tashkent City bog'i — favvoralar yonida",
           "Kinoteatr — bitta film, bitta popkorn ikkovimizga",
           "Anhor bo'yida piyoda sayr — shoshilmasdan",
           "O'sha ko'chada — hammasi boshlangan joyda",
+          "Master Kebab — issiq va mazali",
         ],
       },
       {
