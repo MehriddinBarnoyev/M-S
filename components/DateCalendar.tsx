@@ -13,7 +13,11 @@ const WD_LONG = [
   "Payshanba", "Juma", "Shanba",
 ]; // indexed by Date.getDay() (Sun=0)
 
-export default function DateCalendar({ onPick }: { onPick: (label: string) => void }) {
+export default function DateCalendar({
+  onPick,
+}: {
+  onPick: (label: string, daysLeft: number) => void;
+}) {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
@@ -42,9 +46,18 @@ export default function DateCalendar({ onPick }: { onPick: (label: string) => vo
   const isSelected = (d: Date) =>
     selected != null && d.getTime() === selected.getTime();
 
+  const daysLeft = selected
+    ? Math.round((selected.getTime() - today.getTime()) / 86_400_000)
+    : 0;
+  const daysLeftLabel =
+    daysLeft === 0 ? "Bugun! 🤍" : daysLeft === 1 ? "Ertaga ✨" : `${daysLeft} kun qoldi ✨`;
+
   const confirm = () => {
     if (!selected) return;
-    onPick(`${WD_LONG[selected.getDay()]}, ${selected.getDate()}-${MONTHS[selected.getMonth()]}`);
+    onPick(
+      `${WD_LONG[selected.getDay()]}, ${selected.getDate()}-${MONTHS[selected.getMonth()]}`,
+      daysLeft
+    );
   };
 
   return (
@@ -126,8 +139,11 @@ export default function DateCalendar({ onPick }: { onPick: (label: string) => vo
             exit={{ opacity: 0, y: 8 }}
             className="mt-6 text-center"
           >
-            <p className="mb-4 font-script text-2xl text-rosegold glow-soft">
+            <p className="mb-1 font-script text-2xl text-rosegold glow-soft">
               {WD_LONG[selected.getDay()]}, {selected.getDate()}-{MONTHS[selected.getMonth()]} 💛
+            </p>
+            <p className="mb-4 font-serif text-sm italic text-pearl/70">
+              {daysLeftLabel}
             </p>
             <motion.button
               whileHover={{ scale: 1.05 }}

