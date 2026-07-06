@@ -5,7 +5,7 @@ import { notify } from "@/lib/telegram";
 
 /**
  * Wraps a section and pings Telegram the first time it scrolls into view,
- * so you can follow along as Dilnura moves through the surprise.
+ * so you can follow along as she moves through the surprise.
  */
 export default function SectionNotify({
   message,

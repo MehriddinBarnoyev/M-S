@@ -1,54 +1,84 @@
 /**
- * ─────────────────────────────────────────────────────────────
- *  EDIT THIS FILE — everything personal lives here.
- *  Photos go in /public/photos/  (see /public/photos/README.md)
- * ─────────────────────────────────────────────────────────────
+ * ═══════════════════════════════════════════════════════════════
+ *  BITTA SOZLAMALAR FAYLI — BUTUN SAYT SHU YERDAN BOSHQARILADI
+ *
+ *  Faqat shu faylni tahrirlang:
+ *   1. HER_NAME    — qizning ismi (hamma joyda avtomatik almashadi)
+ *   2. MET_DATE    — tanishgan sana (countdown shu sanadan sanaydi)
+ *   3. photos      — 6 ta rasm: fayllarni /public/photos/ ga tashlang
+ *   4. timeline    — sevgi hikoyangiz (story)
+ *   5. site        — sayt manzili va link-preview matnlari
+ *   6. telegram    — bildirishnomalar uchun bot sozlamalari (ixtiyoriy)
+ *
+ *  Rasm fayli hali qo'yilmagan bo'lsa, sayt chiroyli placeholder
+ *  ko'rsatadi — hech narsa buzilmaydi.
+ * ═══════════════════════════════════════════════════════════════
  */
 
-export const content = {
-  herName: "Dilnura",
+// ── 1. ISM — bitta joyda o'zgartiring, butun sayt yangilanadi ──
+const HER_NAME = "Her Name";
 
-  // The day you met — powers the live countdown. Format: YYYY-MM-DDTHH:mm:ss
-  // ~7–8 years ago, in that English lesson.
-  metDate: "2018-09-15T10:00:00",
+// ── 2. TANISHGAN SANA — format: YYYY-MM-DDTHH:mm:ss ────────────
+const MET_DATE = "2020-01-01T10:00:00";
+
+export const content = {
+  herName: HER_NAME,
+  metDate: MET_DATE,
+
+  // ── SAYT MA'LUMOTLARI (link preview / deploy manzili) ────────
+  site: {
+    url: "https://example.com", // deploy qilgan manzilingizni yozing
+    title: "A little surprise, made just for you",
+    description: "Someone made something special. Open me ♥",
+  },
+
+  // ── TELEGRAM BILDIRISHNOMALAR (ixtiyoriy) ────────────────────
+  // Bo'sh qoldirsangiz — hech narsa yuborilmaydi, sayt baribir ishlaydi.
+  // Xavfsizroq yo'l: qiymatlarni env orqali bering —
+  //   NEXT_PUBLIC_TG_BOT_TOKEN, NEXT_PUBLIC_TG_CHAT_ID, NEXT_PUBLIC_TG_RELAY_URL
+  telegram: {
+    botToken: "", // masalan: "123456789:AA..."
+    chatId: "",   // masalan: "587123456"
+    relayUrl: "", // token serverda tursin desangiz — relay endpoint
+  },
 
   intro: {
-    line: "Dilnura... someone has been holding this in for almost 8 years.",
+    line: `${HER_NAME}... someone has been holding this in for a long time.`,
   },
 
   hero: {
-    kicker: "Seven, almost eight years in the making",
-    title: "For Dilnura",
+    kicker: "A long time in the making",
+    title: `For ${HER_NAME}`,
     typed: [
-      "It started in an English lesson...",
+      "It started with one ordinary day...",
       "One look, and I never really looked away...",
-      "Almost 8 years later, I'm finally saying it.",
+      "And now, I'm finally saying it.",
     ],
   },
 
-  // ── PHOTO STORY ──────────────────────────────────────────────
-  // Drop images into /public/photos and list them here.
-  // If a file doesn't exist yet, an elegant placeholder is shown.
+  // ── 3. RASMLAR (6 ta) ────────────────────────────────────────
+  // Fayllarni /public/photos/ ichiga aynan shu nomlar bilan tashlang:
+  // her-1.jpg ... her-6.jpg. Caption — rasm ostidagi yozuv.
   photos: [
-    { src: "/photos/her-1.jpg", caption: "Evening lights, and the way you looked away — I never could", rotate: -6 },
-    { src: "/photos/her-2.jpg", caption: "The gentleness in you — even the little ones feel it", rotate: 4 },
-    { src: "/photos/her-3.jpg", caption: "Love is life — and your smile has always been the proof", rotate: -3 },
-    { src: "/photos/her-4.jpg", caption: "A quiet café, white flowers, and only you in focus", rotate: 6 },
-    { src: "/photos/her-5.jpg", caption: "Those student years — where it all quietly began", rotate: -5 },
-    { src: "/photos/her-6.jpg", caption: "Spring, and a flower that still couldn't outshine you", rotate: 3 },
+    { src: "/photos/her-1.jpg", caption: "The moment everything changed", rotate: -6 },
+    { src: "/photos/her-2.jpg", caption: "A smile I never forgot", rotate: 4 },
+    { src: "/photos/her-3.jpg", caption: "Some days stay with you forever", rotate: -3 },
+    { src: "/photos/her-4.jpg", caption: "Quiet places, loud heartbeats", rotate: 6 },
+    { src: "/photos/her-5.jpg", caption: "Where it all quietly began", rotate: -5 },
+    { src: "/photos/her-6.jpg", caption: "And still, no one shines like you", rotate: 3 },
   ],
 
-  // ── LOVE STORY TIMELINE ─────────────────────────────────────
+  // ── 4. SEVGI HIKOYASI (STORY / TIMELINE) ─────────────────────
   timeline: [
     {
-      date: "~8 Years Ago",
-      title: "The English lesson",
-      text: "I walked into an ordinary English lesson and walked out with my whole world changed. You were sitting there — and time just slowed down. I didn't know your name yet, but somehow I already knew it mattered.",
+      date: "The Beginning",
+      title: "The day we met",
+      text: "It was an ordinary day that turned out to be anything but. You were there — and time just slowed down. I didn't know it yet, but everything was about to change.",
     },
     {
-      date: "All The Years Between",
+      date: "All The Time Between",
       title: "Knowing you, from near and far",
-      text: "Seven, almost eight years. Different classes, different paths, life pulling us in every direction — and still, not a single one of those years went by without you on my mind.",
+      text: "Different paths, life pulling us in every direction — and still, not a single day went by without you crossing my mind.",
     },
     {
       date: "The Realization",
@@ -58,45 +88,45 @@ export const content = {
     {
       date: "Today",
       title: "Why I'm finally saying it",
-      text: "I've stayed quiet for almost 8 years. I'm done staying quiet. To see you, to sit across from you just once — I'd give anything. So here I am, Dilnura, finally brave enough.",
+      text: `I've stayed quiet long enough. I'm done staying quiet. To see you, to sit across from you just once — I'd give anything. So here I am, ${HER_NAME}, finally brave enough.`,
     },
   ],
 
-  // ── CINEMATIC MESSAGES (word-by-word reveal) ────────────────
+  // ── KINEMATIK XABARLAR (so'zma-so'z ochiladi) ────────────────
   messages: [
-    "For almost 8 years I've known one thing for certain...",
-    "Through every year, every silence, every 'someday'...",
+    "For so long I've known one thing for certain...",
+    "Through every day, every silence, every 'someday'...",
     "It was always...",
-    "You, Dilnura.",
+    `You, ${HER_NAME}.`,
   ],
 
-  // ── THE LOVE LETTER ─────────────────────────────────────────
+  // ── SEVGI XATI ───────────────────────────────────────────────
   letter: {
-    greeting: "To Dilnura,",
+    greeting: `To ${HER_NAME},`,
     paragraphs: [
-      "I have started this letter a hundred times, and every version fell short — because how do you fit almost 8 years of quiet feelings into a few lines?",
-      "It began in an English lesson. I was supposed to be learning a language, and instead I learned you — your smile, the way you made an ordinary room feel warmer. I've known and cared for you ever since, through all these years, without ever really saying it.",
-      "I'm not asking for the world. I'm asking for one moment: to see you, to sit with you, just once. For that, I'd cross any distance and give anything. You've been worth every one of these years — and you'd be worth every one still to come.",
+      "I have started this letter a hundred times, and every version fell short — because how do you fit so many quiet feelings into a few lines?",
+      "It began on an ordinary day. And instead of anything else, I learned you — your smile, the way you made an ordinary room feel warmer. I've known and cared for you ever since, without ever really saying it.",
+      "I'm not asking for the world. I'm asking for one moment: to see you, to sit with you, just once. For that, I'd cross any distance and give anything.",
     ],
-    signoff: "Yours, for almost 8 years now,",
+    signoff: "Yours, all this time,",
     signature: "Me",
   },
 
-  // ── THE QUESTION ────────────────────────────────────────────
+  // ── ASOSIY SAVOL ─────────────────────────────────────────────
   proposal: {
-    lead: "After almost 8 years, there's only one thing left to ask...",
+    lead: "After all this time, there's only one thing left to ask...",
     question: "Date With Me?",
-    // Personal note (shown just under the question)
-    note: "Dilnura — seni English darsida ko'rib qolganimdan beri, 7–8 yil bo'ldi, hali ham o'shasan. Seni bir bora ko'rish, yoningda bo'lish uchun hamma narsaga tayyorman.",
+    // Savol ostida ko'rinadigan shaxsiy izoh
+    note: `${HER_NAME} — seni ilk ko'rgan kunimdan beri yuragimda saqlab yuraman. Seni bir bora ko'rish, yoningda bo'lish uchun hamma narsaga tayyorman.`,
     yes: "YES",
     notYet: "No",
-    yesResponse: "You just made almost 8 years of waiting worth it",
+    yesResponse: "You just made all this waiting worth it",
     notYetResponse: "I'll wait... I've waited this long. You're worth every second.",
   },
 
-  // ── THE DATE PLANNER (shown after she says YES) ─────────────
+  // ── UCHRASHUV REJASI (YES dan keyin ko'rinadi) ───────────────
   datePlanner: {
-    intro: "Deyarli 8 yil kutdim... endi esa birinchi uchrashuvimizni birga chizamiz. Har bir tanlov — seniki 💛",
+    intro: "Endi birinchi uchrashuvimizni birga chizamiz. Har bir tanlov — seniki 💛",
     steps: [
       {
         key: "place",
@@ -130,21 +160,21 @@ export const content = {
       },
     ],
     doneTitle: "Bizning birinchi uchrashuvimiz 💫",
-    doneSubtitle: "Deyarli 8 yildan keyin — mana, boshlanishi. Endi buni haqiqatga aylantirish menga qoldi.",
+    doneSubtitle: "Mana, boshlanishi. Endi buni haqiqatga aylantirish menga qoldi.",
   },
 
-  // Optional: put an mp3 at /public/audio/voice-message.mp3
-  // and the voice-message player will appear automatically.
+  // Ixtiyoriy: /public/audio/voice-message.mp3 qo'ysangiz,
+  // ovozli xabar pleyeri avtomatik paydo bo'ladi.
   voiceMessage: {
     src: "/audio/voice-message.mp3",
-    label: "Dilnura, I recorded something I've never had the courage to say...",
+    label: `${HER_NAME}, I recorded something I've never had the courage to say...`,
   },
 
-  // Hidden easter-egg hearts — little secrets she can find.
+  // Yashirin yurakchalar — topganda ochiladigan sirlar.
   secrets: [
-    "You found a secret! Here it is: I still remember exactly where you sat in that English lesson.",
-    "Another secret: for almost 8 years, your name has been the one I never stopped thinking about.",
-    "Last secret: I rehearsed this a hundred times in my head. It took me 8 years to finally press 'send'.",
+    "You found a secret! Here it is: I still remember exactly the first moment I saw you.",
+    "Another secret: your name has been the one I never stopped thinking about.",
+    "Last secret: I rehearsed this a hundred times in my head before I finally pressed 'send'.",
   ],
 };
 

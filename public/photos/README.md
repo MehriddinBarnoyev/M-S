@@ -1,18 +1,16 @@
-# Your Photos
+# Rasmlar / Photos
 
-Drop your photos into this folder, then list them in `lib/content.ts` (the
-`photos` array). The site expects these filenames by default:
+Bu papkaga 6 ta rasmni aynan shu nomlar bilan tashlang:
 
-- `us-1.jpg`, `us-2.jpg`, `us-3.jpg` — photos of the two of you
-- `her-1.jpg`, `her-2.jpg` — photos of her
-- `me-1.jpg` — a photo of you
+```
+her-1.jpg
+her-2.jpg
+her-3.jpg
+her-4.jpg
+her-5.jpg
+her-6.jpg
+```
 
-Portrait orientation (4:5) looks best in the polaroids. Any missing photo
-shows an elegant placeholder, so the site always works.
-
-# Audio (optional)
-
-Create a folder `public/audio/` and add:
-
-- `music.mp3` — replaces the generated piano soundtrack
-- `voice-message.mp3` — unlocks the voice-message player section
+- Rasm ostidagi yozuvlar (caption) `lib/content.ts` faylidagi `photos` bo'limida.
+- Rasm hali qo'yilmagan bo'lsa, sayt chiroyli placeholder ko'rsatadi — hech narsa buzilmaydi.
+- Eng yaxshi natija uchun 4:5 nisbatdagi (portret) rasmlar tavsiya qilinadi.

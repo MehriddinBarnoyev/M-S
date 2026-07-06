@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Playfair_Display, Great_Vibes, Inter, Dancing_Script } from "next/font/google";
+import { content } from "@/lib/content";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -26,17 +27,16 @@ const inter = Inter({
   weight: ["300", "400", "500", "600"],
 });
 
-// If you deploy somewhere other than this URL, update it so the link
-// preview image resolves to an absolute URL on that domain.
-const SITE_URL = "https://my-dilnuraa.netlify.app";
+// Site URL, title and description all live in lib/content.ts → content.site
+const { url: SITE_URL, title: SITE_TITLE, description: SITE_DESCRIPTION } = content.site;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "A little surprise, made just for you",
-  description: "Someone made something special. Open me ♥",
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
   openGraph: {
-    title: "A little surprise, made just for you",
-    description: "Someone made something special. Open me ♥",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     type: "website",
     url: SITE_URL,
     images: [
@@ -50,8 +50,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "A little surprise, made just for you",
-    description: "Someone made something special. Open me ♥",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     images: ["/og-preview.png"],
   },
 };

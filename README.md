@@ -19,10 +19,13 @@ Tip: open `http://localhost:3000/?skip` to jump past the intro while testing.
 
 ## Make it yours (5 minutes)
 
-1. **`lib/content.ts`** — everything personal lives in this one file:
-   her name, the date you met (powers the live countdown), the timeline
-   of your story, the cinematic messages, the love letter, the secrets
-   hidden around the page, and the words of the question itself.
+1. **`lib/content.ts`** — everything personal lives in this ONE file:
+   her name (`HER_NAME` — change it once, it updates everywhere, including
+   Telegram notifications), the date you met (powers the live countdown),
+   the 6 photo captions, the timeline of your story, the cinematic messages,
+   the love letter, the secrets hidden around the page, the words of the
+   question itself, the site URL / link-preview texts, and the optional
+   Telegram bot settings.
 2. **Photos** — drop images into `public/photos/` (see the README there).
    Missing photos show elegant placeholders, so the site always works.
 3. **Audio (optional)** — create `public/audio/` and add:

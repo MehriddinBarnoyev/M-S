@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import { content } from "@/lib/content";
 import { notify, notifyPhoto, notifyVideo, notifyAudio } from "@/lib/telegram";
 
 type MediaKind = "photo" | "video" | "audio";
@@ -10,7 +11,7 @@ type Attachment = { kind: MediaKind; blob: Blob; url: string };
 const MAX_MB = 45; // Telegram bot upload limit is ~50MB; stay safely under
 
 /**
- * A gentle, consensual note box. Dilnura can write a few words, and/or
+ * A gentle, consensual note box. She can write a few words, and/or
  * attach a photo, a video, or record a voice message — she picks or records
  * it herself, sees a preview, and taps send. Nothing leaves without her tap.
  */
@@ -96,13 +97,13 @@ export default function HerMessage() {
 
     if (media) {
       const caption = msg
-        ? `✍️ <b>Dilnura</b>: “${msg}”`
-        : "💌 <b>Dilnura</b> sizga yubordi";
+        ? `✍️ <b>${content.herName}</b>: “${msg}”`
+        : `💌 <b>${content.herName}</b> sizga yubordi`;
       if (media.kind === "photo") notifyPhoto(media.blob, caption);
       else if (media.kind === "video") notifyVideo(media.blob, caption);
       else notifyAudio(media.blob, caption);
     } else {
-      notify(`✍️ <b>Dilnura</b> senga bir og'iz yozdi:\n\n“${msg}”`);
+      notify(`✍️ <b>${content.herName}</b> senga bir og'iz yozdi:\n\n“${msg}”`);
     }
     setSent(true);
   };
@@ -228,7 +229,7 @@ export default function HerMessage() {
           >
             <div className="mb-3 text-4xl" aria-hidden="true">💌</div>
             <p className="font-script text-3xl text-rosegold glow-soft sm:text-4xl">
-              Yuborildi — rahmat, Dilnura
+              Yuborildi — rahmat, {content.herName}
             </p>
             <p className="mt-3 font-serif text-base italic text-pearl/70">
               Har bir so'zing, har bir lahzang men uchun qimmatli.

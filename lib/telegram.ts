@@ -1,30 +1,25 @@
 /**
  * ─────────────────────────────────────────────────────────────
- *  TELEGRAM NOTIFY — sends Dilnura's answer + date plan to you.
+ *  TELEGRAM NOTIFY — sends her answer + date plan to you.
  *
- *  Two ways to configure (pick ONE):
- *
- *  A) Easy (token lives in the site — revoke it after the surprise):
- *     Set BOT_TOKEN and CHAT_ID below, or via env:
- *       NEXT_PUBLIC_TG_BOT_TOKEN, NEXT_PUBLIC_TG_CHAT_ID
- *
- *  B) Secure (recommended — token stays on a server):
- *     Deploy a tiny relay that forwards { text } to Telegram, then
- *     set RELAY_URL below or NEXT_PUBLIC_TG_RELAY_URL.
- *     The site will POST { text } to that URL instead.
+ *  Configure in ONE place: lib/content.ts → content.telegram
+ *  (or via env: NEXT_PUBLIC_TG_BOT_TOKEN, NEXT_PUBLIC_TG_CHAT_ID,
+ *   NEXT_PUBLIC_TG_RELAY_URL — env wins over content.ts).
  *
  *  If nothing is configured, sends are silently skipped (no errors).
  * ─────────────────────────────────────────────────────────────
  */
 
+import { content } from "./content";
+
 const BOT_TOKEN =
-  process.env.NEXT_PUBLIC_TG_BOT_TOKEN ?? "8137124798:AAH477DoS0DOK9nWzLo5of21ouD3ICPQJmo"; // e.g. "123456789:AA..."
+  process.env.NEXT_PUBLIC_TG_BOT_TOKEN ?? content.telegram.botToken; // e.g. "123456789:AA..."
 const CHAT_ID =
-  process.env.NEXT_PUBLIC_TG_CHAT_ID ?? "8266537083"; // e.g. "587123456"
+  process.env.NEXT_PUBLIC_TG_CHAT_ID ?? content.telegram.chatId; // e.g. "587123456"
 // Leave empty to send DIRECTLY to Telegram (works on localhost too).
 // Only set this to a real forwarding endpoint (NOT your site's homepage).
 const RELAY_URL =
-  process.env.NEXT_PUBLIC_TG_RELAY_URL ?? ""; // e.g. "https://your-relay.vercel.app/api/notify"
+  process.env.NEXT_PUBLIC_TG_RELAY_URL ?? content.telegram.relayUrl; // e.g. "https://your-relay.vercel.app/api/notify"
 
 const isConfigured = Boolean(RELAY_URL || (BOT_TOKEN && CHAT_ID));
 
@@ -89,7 +84,7 @@ function postForm(
 /** Send an image (e.g. the date-plan screenshot, or her own photo). */
 export function notifyPhoto(blob: Blob, caption?: string): void {
   try {
-    postForm("sendPhoto", "photo", blob, "dilnura-photo.jpg", caption)?.catch(() => {});
+    postForm("sendPhoto", "photo", blob, "her-photo.jpg", caption)?.catch(() => {});
   } catch {
     /* never break the surprise */
   }
@@ -98,7 +93,7 @@ export function notifyPhoto(blob: Blob, caption?: string): void {
 /** Send a video she chose/recorded. */
 export function notifyVideo(blob: Blob, caption?: string): void {
   try {
-    postForm("sendVideo", "video", blob, "dilnura-video.mp4", caption)?.catch(() => {});
+    postForm("sendVideo", "video", blob, "her-video.mp4", caption)?.catch(() => {});
   } catch {
     /* never break the surprise */
   }
@@ -118,9 +113,9 @@ export function notifyAudio(blob: Blob, caption?: string): void {
       ? "ogg"
       : "webm";
     const asDocument = () =>
-      postForm("sendDocument", "document", blob, `dilnura-voice.${ext}`, caption)?.catch(() => {});
+      postForm("sendDocument", "document", blob, `her-voice.${ext}`, caption)?.catch(() => {});
 
-    const p = postForm("sendAudio", "audio", blob, `dilnura-voice.${ext}`, caption);
+    const p = postForm("sendAudio", "audio", blob, `her-voice.${ext}`, caption);
     if (!p) return;
     p.then(async (r) => {
       // Direct Telegram replies with { ok }. If it rejected the codec, fall

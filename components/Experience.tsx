@@ -36,7 +36,7 @@ export default function Experience() {
 
   // Let you know the moment she opens the surprise (fires once).
   useEffect(() => {
-    notify("🌟 <b>Dilnura</b> surprise saytni ochdi.");
+    notify(`🌟 <b>${content.herName}</b> surprise saytni ochdi.`);
   }, []);
 
   // Buttery smooth scrolling
@@ -82,37 +82,37 @@ export default function Experience() {
       <div className="relative z-10">
         <Hero started={started} />
 
-        <SectionNotify message="⏳ <b>Dilnura</b> — kutilgan kunlar sanog'ini ko'rdi.">
+        <SectionNotify message={`⏳ <b>${content.herName}</b> — kutilgan kunlar sanog'ini ko'rdi.`}>
           <section className="relative px-6 py-20 sm:py-28">
             <Countdown />
           </section>
         </SectionNotify>
 
-        <SectionNotify message="🎬 <b>Dilnura</b> — yashirin so'zlarni o'qiy boshladi.">
+        <SectionNotify message={`🎬 <b>${content.herName}</b> — yashirin so'zlarni o'qiy boshladi.`}>
           <Messages />
         </SectionNotify>
 
-        <SectionNotify message="📸 <b>Dilnura</b> — rasmlar bo'limiga yetdi.">
+        <SectionNotify message={`📸 <b>${content.herName}</b> — rasmlar bo'limiga yetdi.`}>
           <PhotoStory />
         </SectionNotify>
 
-        <SectionNotify message="📖 <b>Dilnura</b> — bizning hikoyamizni (timeline) ko'rmoqda.">
+        <SectionNotify message={`📖 <b>${content.herName}</b> — bizning hikoyamizni (timeline) ko'rmoqda.`}>
           <Timeline />
         </SectionNotify>
 
-        <SectionNotify message="✨ <b>Dilnura</b> — yulduzlar bo'limiga yetdi.">
+        <SectionNotify message={`✨ <b>${content.herName}</b> — yulduzlar bo'limiga yetdi.`}>
           <Constellation />
         </SectionNotify>
 
-        <SectionNotify message="🎙 <b>Dilnura</b> — ovozli xabar bo'limiga yetdi.">
+        <SectionNotify message={`🎙 <b>${content.herName}</b> — ovozli xabar bo'limiga yetdi.`}>
           <VoiceMessage />
         </SectionNotify>
 
-        <SectionNotify message="💌 <b>Dilnura</b> — SEVGI XATINI ochdi.">
+        <SectionNotify message={`💌 <b>${content.herName}</b> — SEVGI XATINI ochdi.`}>
           <LoveLetter />
         </SectionNotify>
 
-        <SectionNotify message="💍 <b>Dilnura</b> — asosiy savol (taklif) bo'limiga yetdi!">
+        <SectionNotify message={`💍 <b>${content.herName}</b> — asosiy savol (taklif) bo'limiga yetdi!`}>
           <Proposal onEnter={onProposalInView} />
         </SectionNotify>
 
