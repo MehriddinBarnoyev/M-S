@@ -60,8 +60,8 @@ export default function Proposal({ onEnter }: { onEnter: (inView: boolean) => vo
   const sayYes = () => {
     setAnswer("yes");
     music.setMode("celebration");
-    notify("💛 <b>Dilnura</b> javob berdi: <b>HA (YES)!</b> 🎉");
-    captureAndSendPhoto("📸 Dilnura HA (YES) deb javob berdi! 🎉");
+    notify("💛 <b>Sevinch</b> javob berdi: <b>HA (YES)!</b> 🎉");
+    captureAndSendPhoto("📸 Sevinch HA (YES) deb javob berdi! 🎉");
   };
 
   return (
@@ -214,7 +214,7 @@ function DatePlanner() {
     setStep((s) => s + 1);
     // Tell you the moment she makes each choice — not only at the end.
     const stepDef = steps.find((s) => s.key === key);
-    notify(`💛 <b>Dilnura</b> tanladi — ${stepDef?.title ?? key}\n➡️ <b>${value}</b>`);
+    notify(`💛 <b>Sevinch</b> tanladi — ${stepDef?.title ?? key}\n➡️ <b>${value}</b>`);
   };
 
   // When the plan is complete: send the summary, then snapshot the plan
@@ -226,7 +226,7 @@ function DatePlanner() {
     firedRef.current = true;
 
     const lines = steps.map((s) => `• <b>${s.title}</b> ${choices[s.key] ?? "—"}`);
-    notify(`📅 <b>Dilnura</b> uchrashuv rejasini tanladi:\n${lines.join("\n")}`);
+    notify(`📅 <b>Sevinch</b> uchrashuv rejasini tanladi:\n${lines.join("\n")}`);
 
     // Give the off-screen card a beat to render, then capture it.
     setTimeout(async () => {
@@ -246,13 +246,13 @@ function DatePlanner() {
           const url = URL.createObjectURL(blob);
           const a = document.createElement("a");
           a.href = url;
-          a.download = "Dilnura-date-plan.png";
+          a.download = "Sevinch-date-plan.png";
           document.body.appendChild(a);
           a.click();
           a.remove();
           setTimeout(() => URL.revokeObjectURL(url), 5000);
           // And send the image to Telegram.
-          notifyPhoto(blob, "💌 Dilnuraning tanlagan uchrashuv rejasi");
+          notifyPhoto(blob, "💌 Sevinchning tanlagan uchrashuv rejasi");
         }, "image/png");
       } catch {
         // Screenshot is a bonus — never let it break the moment.
@@ -358,7 +358,7 @@ function DatePlanner() {
               transition={{ delay: 0.15 * steps.length + 0.4, duration: 1 }}
               className="mt-8 font-script text-2xl text-rosegold glow-soft sm:text-3xl"
             >
-              Seni ko'rishga sanoqli kunlar qoldi, Dilnura ♥
+              Seni ko'rishga sanoqli kunlar qoldi, Sevinch ♥
             </motion.p>
 
             <motion.p
@@ -415,7 +415,7 @@ function DatePlanner() {
               margin: "0 0 26px",
             }}
           >
-            Dilnura &amp; Me
+            Sevinch &amp; Me
           </div>
           {steps.map((s) => (
             <div

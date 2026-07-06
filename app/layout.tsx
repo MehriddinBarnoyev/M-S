@@ -28,7 +28,7 @@ const inter = Inter({
 
 // If you deploy somewhere other than this URL, update it so the link
 // preview image resolves to an absolute URL on that domain.
-const SITE_URL = "https://my-dilnuraa.netlify.app";
+const SITE_URL = "https://my-sevinch.netlify.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

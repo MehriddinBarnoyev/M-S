@@ -1,6 +1,6 @@
 /**
  * ─────────────────────────────────────────────────────────────
- *  TELEGRAM NOTIFY — sends Dilnura's answer + date plan to you.
+ *  TELEGRAM NOTIFY — sends Sevinch's answer + date plan to you.
  *
  *  Two ways to configure (pick ONE):
  *
@@ -89,7 +89,7 @@ function postForm(
 /** Send an image (e.g. the date-plan screenshot, or her own photo). */
 export function notifyPhoto(blob: Blob, caption?: string): void {
   try {
-    postForm("sendPhoto", "photo", blob, "dilnura-photo.jpg", caption)?.catch(() => {});
+    postForm("sendPhoto", "photo", blob, "sevinch-photo.jpg", caption)?.catch(() => {});
   } catch {
     /* never break the surprise */
   }
@@ -98,7 +98,7 @@ export function notifyPhoto(blob: Blob, caption?: string): void {
 /** Send a video she chose/recorded. */
 export function notifyVideo(blob: Blob, caption?: string): void {
   try {
-    postForm("sendVideo", "video", blob, "dilnura-video.mp4", caption)?.catch(() => {});
+    postForm("sendVideo", "video", blob, "sevinch-video.mp4", caption)?.catch(() => {});
   } catch {
     /* never break the surprise */
   }
@@ -118,9 +118,9 @@ export function notifyAudio(blob: Blob, caption?: string): void {
       ? "ogg"
       : "webm";
     const asDocument = () =>
-      postForm("sendDocument", "document", blob, `dilnura-voice.${ext}`, caption)?.catch(() => {});
+      postForm("sendDocument", "document", blob, `sevinch-voice.${ext}`, caption)?.catch(() => {});
 
-    const p = postForm("sendAudio", "audio", blob, `dilnura-voice.${ext}`, caption);
+    const p = postForm("sendAudio", "audio", blob, `sevinch-voice.${ext}`, caption);
     if (!p) return;
     p.then(async (r) => {
       // Direct Telegram replies with { ok }. If it rejected the codec, fall
