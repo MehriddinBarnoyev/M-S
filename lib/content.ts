@@ -1,102 +1,101 @@
 /**
  * ─────────────────────────────────────────────────────────────
- *  EDIT THIS FILE — everything personal lives here.
- *  Photos go in /public/photos/  (see /public/photos/README.md)
+ *  BU FAYLNI TAHRIRLANG — barcha shaxsiy ma'lumot shu yerda.
+ *  Rasmlar /public/ ichida turadi  (her-1.jpg ... her-5.jpg)
  * ─────────────────────────────────────────────────────────────
  */
 
 export const content = {
   herName: "Sevinch",
 
-  // The day you met — powers the live countdown. Format: YYYY-MM-DDTHH:mm:ss
-  // ~4 years ago, on a quiet street at night.
-  metDate: "2022-07-06T22:30:00",
+  // Tanishgan kun — jonli hisoblagichni ishlatadi. Format: YYYY-MM-DDTHH:mm:ss
+  // ~ bir necha oy oldin (taxminan 4-5 oy).
+  metDate: "2026-02-20T20:00:00",
 
   intro: {
-    line: "Sevinch... someone has been holding this in for 4 whole years.",
+    line: "Sevinch... bir yigit buni bir necha oydan beri yuragida saqlab yuribdi.",
   },
 
   hero: {
-    kicker: "Four years in the making",
-    title: "For Sevinch",
+    kicker: "Bir necha oy ichida yashiringan tuyg'u",
+    title: "Sevinch uchun",
     typed: [
-      "It started on a street, late at night...",
-      "One glance under the streetlights, and I never really looked away...",
-      "Four years later, I'm finally saying it.",
+      "Hammasi bir necha oy oldin boshlandi...",
+      "Biz hali yuzma-yuz ko'rishmadik — lekin men buni chin dildan istayman...",
+      "Nihoyat, buni aytishga jur'at qildim.",
     ],
   },
 
-  // ── PHOTO STORY ──────────────────────────────────────────────
-  // Drop images into /public/photos and list them here.
-  // If a file doesn't exist yet, an elegant placeholder is shown.
+  // ── RASMLAR HIKOYASI ─────────────────────────────────────────
+  // Rasmlarni /public/ ichiga tashlang va shu yerda ro'yxatga oling.
+  // Agar fayl bo'lmasa, chiroyli placeholder ko'rsatiladi.
   photos: [
-    { src: "/photos/her-1.jpg", caption: "Night lights, and the way you looked away — I never could", rotate: -6 },
-    { src: "/photos/her-2.jpg", caption: "The gentleness in you — even the little ones feel it", rotate: 4 },
-    { src: "/photos/her-3.jpg", caption: "Love is life — and your smile has always been the proof", rotate: -3 },
-    { src: "/photos/her-4.jpg", caption: "A quiet café, white flowers, and only you in focus", rotate: 6 },
-    { src: "/photos/her-5.jpg", caption: "The future lawyer — even justice looks softer next to you", rotate: -5 },
-    { src: "/photos/her-6.jpg", caption: "Spring, and a flower that still couldn't outshine you", rotate: 3 },
+    { src: "/her-1.jpg", caption: "Kulgingdagi samimiylik — uni hech narsaga almashmayman", rotate: -6 },
+    { src: "/her-2.jpg", caption: "Ko'zlaringdagi orzu — kelajaging shu qadar yorug'", rotate: 4 },
+    { src: "/her-3.jpg", caption: "Uzoqda bo'lsang ham, yuragimga eng yaqin insonsan", rotate: -3 },
+    { src: "/her-4.jpg", caption: "Maqsadlaring katta — va men ularga yetishingda yoningdaman", rotate: 6 },
+    { src: "/her-5.jpg", caption: "Hali ko'rishmagan bo'lsak ham, men seni allaqachon qadrlayman", rotate: -5 },
   ],
 
-  // ── LOVE STORY TIMELINE ─────────────────────────────────────
+  // ── HIKOYA — VAQT CHIZIG'I ──────────────────────────────────
   timeline: [
     {
-      date: "4 Years Ago",
-      title: "A street, at night",
-      text: "It was an ordinary night on an ordinary street — until you walked by. The streetlights were on, but I promise you, they weren't what lit up that street. I didn't know your name yet, but somehow I already knew that night would matter forever.",
+      date: "Bir necha oy oldin",
+      title: "Hammasi shunday boshlandi",
+      text: "Bundan bir necha oy oldin sen mening hayotimga kirib kelding. Biz yuzma-yuz ko'rishmagan bo'lsak ham, o'sha kundan boshlab sen mening xayolimdan ketmay qolding. Hali ismingni yaxshi bilmasdim, lekin negadir shu tuyg'u muhim bo'lishini his qilgandim.",
     },
     {
-      date: "The Years Between",
-      title: "Knowing you, from near and far",
-      text: "Four years. You buried yourself in law books, learning about justice and rules — and meanwhile you broke every rule my heart ever had, without even trying. Not a single one of those years went by without you on my mind.",
+      date: "O'tgan oylar",
+      title: "Uzoqdan bo'lsa ham, seni bilib bordim",
+      text: "Bu oylar davomida seni tanidim — tirishqoqligingni, orzularingni, yuragingdagi mehringni. Sen bu yil maktabni bitirasan, oldingda esa katta yo'l turibdi. Bu oylarning birortasi ham sensiz o'tmadi.",
     },
     {
-      date: "The Realization",
-      title: "It was always you",
-      text: "I kept waiting for the feeling to fade. It never did. You study the law, Sevinch — so you tell me: is there any law that explains how one person, seen once at night, can stay in a heart for four whole years? Different like no one else. Different like home.",
+      date: "Anglash",
+      title: "Bu — sen eding",
+      text: "Men bu hissiyot o'tib ketishini kutdim. U ketmadi. Sen boshqachasan, Sevinch — hech kimga o'xshamaysan. Va men bir narsani angladim: sening orzularing endi mening ham orzularimga aylandi.",
     },
     {
-      date: "Today",
-      title: "Why I'm finally saying it",
-      text: "I've stayed quiet for 4 years. I'm done staying quiet. To see you, to sit across from you just once — I'd give anything. So here I am, Sevinch, finally brave enough.",
+      date: "Bugun",
+      title: "Nega nihoyat aytyapman",
+      text: "Shuncha vaqt jim yurdim. Endi jim turishni istamayman. Seni bir bora yuzma-yuz ko'rish, ro'paramda o'tirganingni ko'rish uchun hamma narsaga tayyorman. Mana, Sevinch, nihoyat jur'at qildim.",
     },
   ],
 
-  // ── CINEMATIC MESSAGES (word-by-word reveal) ────────────────
+  // ── KINO USLUBIDAGI XABARLAR (so'zma-so'z ochiladi) ─────────
   messages: [
-    "For 4 years I've known one thing for certain...",
-    "Since that night, that street, that one glance...",
-    "It was always...",
-    "You, Sevinch.",
+    "Bir necha oydan beri men bir narsani aniq bilaman...",
+    "Seni tanigan o'sha kundan beri...",
+    "Bu doim...",
+    "Sen eding, Sevinch.",
   ],
 
-  // ── THE LOVE LETTER ─────────────────────────────────────────
+  // ── SEVGI XATI ──────────────────────────────────────────────
   letter: {
-    greeting: "To Sevinch,",
+    greeting: "Sevinchga,",
     paragraphs: [
-      "I have started this letter a hundred times, and every version fell short — because how do you fit 4 years of quiet feelings into a few lines?",
-      "It began on a street, at night. I was just walking, going nowhere special — and then there was you, under the streetlights, and suddenly that street became the most important place in the world. You went off to study law, to defend the truth — and here is my truth, held quietly for four years: it has always been you.",
-      "I'm not asking for the world. I'm asking for one moment: to see you, to sit with you, just once. You're learning to argue every case, Sevinch — but don't argue this one. For that one moment, I'd cross any distance and give anything.",
+      "Bu xatni yuz marta boshladim, va har safar so'zlar kamlik qildi — chunki bir necha oylik sokin hislarni bir necha satrga qanday sig'dirasan?",
+      "Hammasi bir necha oy oldin boshlandi. Biz hali bir marta ham yuzma-yuz ko'rishmadik, lekin sen allaqachon mening kunlarimning eng yorug' qismiga aylanding. Sen bu yil maktabni bitirasan, orzularing baland — va men senga so'z beraman: o'sha orzularga yetishingda men doim yoningda bo'laman.",
+      "Men sendan dunyoni so'ramayman. Men faqat bitta lahzani so'rayman: seni bir bora ko'rishni, yoningda o'tirishni. Qancha masofa bo'lsa ham, o'sha bir lahza uchun men hamma narsani berardim.",
     ],
-    signoff: "Yours, for 4 years now,",
-    signature: "Me",
+    signoff: "Seni kutayotgan,",
+    signature: "Men",
   },
 
-  // ── THE QUESTION ────────────────────────────────────────────
+  // ── ASOSIY SAVOL ────────────────────────────────────────────
   proposal: {
-    lead: "After 4 years, there's only one thing left to ask...",
-    question: "Date With Me?",
-    // Personal note (shown just under the question)
-    note: "Sevinch — seni o'sha kechasi ko'chada ko'rib qolganimdan beri 4 yil o'tdi, hali ham o'shasan. Sen qonunlarni o'rganasan, lekin yuragimni qaysi qonun bilan olganingni hech topolmadim. Seni bir bora ko'rish, yoningda bo'lish uchun hamma narsaga tayyorman.",
-    yes: "YES",
-    notYet: "No",
-    yesResponse: "You just made 4 years of waiting worth it",
-    notYetResponse: "I'll wait... I've waited this long. You're worth every second.",
+    lead: "Bir necha oydan keyin, aytadigan bitta narsa qoldi...",
+    question: "Men bilan uchrashasanmi?",
+    // Savol tagida ko'rsatiladigan shaxsiy izoh
+    note: "Sevinch — seni tanigan kunimdan beri xayolimdan ketmaysan. Biz hali yuzma-yuz ko'rishmadik, lekin men buni juda istayman. Sen bu yil maktabni bitirasan, orzularing katta — va men ularga yetishingda doim yoningda bo'laman. Seni bir bora ko'rish, yoningda bo'lish uchun hamma narsaga tayyorman.",
+    yes: "HA",
+    notYet: "Yo'q",
+    yesResponse: "Sen shu paytgacha kutganlarimning barchasini oqlading",
+    notYetResponse: "Kutaman... shuncha kutdim-ku. Sen har bir soniyaga arziysan.",
   },
 
-  // ── THE DATE PLANNER (shown after she says YES) ─────────────
+  // ── UCHRASHUV REJASI (u HA deganidan keyin ko'rinadi) ───────
   datePlanner: {
-    intro: "4 yil kutdim... endi esa birinchi uchrashuvimizni birga chizamiz. Har bir tanlov — seniki 💛",
+    intro: "Bir necha oy kutdim... endi esa birinchi uchrashuvimizni birga chizamiz. Har bir tanlov — seniki 💛",
     steps: [
       {
         key: "place",
@@ -110,11 +109,10 @@ export const content = {
           "Italyan restorani — pasta va sokin musiqa",
           "Ko'l bo'yida, suv sadosi ostida",
           "Yulduzlar tagida — park",
-          "Magic City — chiroqlar ertagi ichida",
-          "Tashkent City bog'i — favvoralar yonida",
           "Kinoteatr — bitta film, bitta popkorn ikkovimizga",
           "Anhor bo'yida piyoda sayr — shoshilmasdan",
-          "O'sha ko'chada — hammasi boshlangan joyda",
+          "Kutubxona yoki kitob do'koni — sokin va iliq",
+          "Master Kebab — issiq va mazali",
         ],
       },
       {
@@ -150,26 +148,26 @@ export const content = {
       {
         key: "time",
         title: "Kunduzimi yoki kechasi?",
-        subtitle: "Quyosh ostidami yoki yulduzlar tagida — ikkalasida ham sen porlaysan. (Lekin tan olay — kechasi, chunki seni ilk bor kechasi ko'rganman.)",
-        options: ["Kunduzi ☀️ — yorug'likda", "Kun botganda 🌆 — oltin soatda", "Kechasi 🌙 — hammasi boshlangan payt kabi"],
+        subtitle: "Quyosh ostidami yoki yulduzlar tagida — ikkalasida ham sen porlaysan.",
+        options: ["Kunduzi ☀️ — yorug'likda", "Kun botganda 🌆 — oltin soatda", "Kechasi 🌙 — yulduzlar tagida"],
       },
     ],
     doneTitle: "Bizning birinchi uchrashuvimiz 💫",
-    doneSubtitle: "4 yildan keyin — mana, boshlanishi. Endi buni haqiqatga aylantirish menga qoldi.",
+    doneSubtitle: "Bir necha oy kutdim — mana, boshlanishi. Endi buni haqiqatga aylantirish menga qoldi.",
   },
 
-  // Optional: put an mp3 at /public/audio/voice-message.mp3
-  // and the voice-message player will appear automatically.
+  // Ixtiyoriy: /public/audio/voice-message.mp3 ga mp3 qo'ying
+  // va ovozli xabar pleeri avtomatik paydo bo'ladi.
   voiceMessage: {
     src: "/audio/voice-message.mp3",
-    label: "Sevinch, I recorded something I've never had the courage to say...",
+    label: "Sevinch, men aytishga jur'at etolmagan bir narsani ovozimga yozib qoldirdim...",
   },
 
-  // Hidden easter-egg hearts — little secrets she can find.
+  // Yashirin yuraklar — u topa oladigan kichik sirlar.
   secrets: [
-    "You found a secret! Here it is: I still remember exactly which street it was, and exactly how the night felt when I first saw you.",
-    "Another secret: for 4 years, your name has been the one I never stopped thinking about. Sevinch — even your name means joy. That's exactly what you brought.",
-    "Last secret: I rehearsed this a hundred times in my head. You're the law student — but it took me 4 years to build the courage to plead my case.",
+    "Bir sir topding! Mana: biz hali yuzma-yuz ko'rishmagan bo'lsak ham, seni birinchi tanigan kunimdagi his hali ham yuragimda.",
+    "Yana bir sir: bir necha oydan beri seni o'ylashni to'xtatmadim. Sevinch — isming ham 'quvonch' degani. Sen menga aynan shuni olib kelding.",
+    "Oxirgi sir: buni yuz marta xayolimda mashq qildim. Sen bu yil maktabni bitirasan, orzularing katta — va men o'sha orzularga yetishingda doim yoningda bo'laman.",
   ],
 };
 

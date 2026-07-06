@@ -41,7 +41,7 @@ export default function Hero({ started }: { started: boolean }) {
         className="absolute bottom-10 flex flex-col items-center gap-3"
       >
         <span className="font-sans text-[10px] uppercase tracking-[0.4em] text-pearl/50">
-          scroll into our story
+          hikoyamizga sho'ng'i
         </span>
         <motion.div
           animate={{ y: [0, 8, 0] }}

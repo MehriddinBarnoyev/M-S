@@ -80,7 +80,7 @@ export default function PhotoStory() {
 
   return (
     <section ref={ref} className="relative px-6 py-28 sm:py-40">
-      <SectionTitle script="fragments of us" title="Our Moments" />
+      <SectionTitle script="bizning lahzalarimiz" title="Sen va Lahzalar" />
       <div className="mx-auto flex max-w-5xl flex-wrap items-start justify-center gap-8 sm:gap-12">
         {photos.map((photo, i) => (
           <motion.div key={photo.src} style={{ y: i % 2 === 0 ? yA : yB }}>
@@ -95,7 +95,7 @@ export default function PhotoStory() {
         transition={{ duration: 1.4, delay: 0.3 }}
         className="mt-20 text-center font-serif text-lg italic text-pearl/70 sm:text-xl"
       >
-        Every picture holds a heartbeat.
+        Har bir suratda bir yurak urishi bor.
       </motion.p>
     </section>
   );

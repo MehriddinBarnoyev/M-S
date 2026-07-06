@@ -174,7 +174,7 @@ export default function Constellation() {
 
   return (
     <section className="relative px-6 py-28 sm:py-36">
-      <SectionTitle script="a secret in the sky" title="Wake the Stars" />
+      <SectionTitle script="osmondagi sir" title="Yulduzlarni Uyg'ot" />
       <motion.p
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -182,8 +182,8 @@ export default function Constellation() {
         transition={{ duration: 1.2 }}
         className="mx-auto -mt-8 mb-8 max-w-md text-center font-sans text-sm font-light text-pearl/60"
       >
-        Glide your finger across the sleeping stars below... they have been
-        waiting to show you something.
+        Barmog'ingni pastdagi uxlab yotgan yulduzlar ustidan yurgiz... ular
+        senga bir narsani ko'rsatishni kutib turibdi.
       </motion.p>
 
       <div
@@ -193,7 +193,7 @@ export default function Constellation() {
         <canvas ref={canvasRef} className="absolute inset-0 touch-none" />
         {!done && litCount > 0 && (
           <div className="pointer-events-none absolute bottom-5 left-1/2 -translate-x-1/2 font-sans text-[10px] uppercase tracking-[0.3em] text-pearl/50">
-            {litCount} / {STAR_COUNT} stars awake
+            {litCount} / {STAR_COUNT} yulduz uyg'ondi
           </div>
         )}
         {done && (
@@ -203,7 +203,7 @@ export default function Constellation() {
             transition={{ duration: 1.6, delay: 1.2 }}
             className="pointer-events-none absolute bottom-6 left-0 right-0 text-center font-script text-2xl text-rosegold glow-soft sm:text-3xl"
           >
-            Even the stars knew it was always you.
+            Yulduzlar ham bilardi — bu doim sen eding.
           </motion.p>
         )}
       </div>

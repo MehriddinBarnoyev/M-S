@@ -28,7 +28,7 @@ export default function Timeline() {
 
   return (
     <section className="relative px-6 py-28 sm:py-40">
-      <SectionTitle script="chapter by chapter" title="Our Story" />
+      <SectionTitle script="bob-bob" title="Bizning Hikoyamiz" />
 
       <div ref={ref} className="relative mx-auto max-w-3xl">
         {/* Growing spine */}

@@ -18,11 +18,11 @@ const CrystalScene = dynamic(() => import("@/components/CrystalScene"), {
 
 // Playful nudges shown while the "No" button keeps slipping away.
 const NUDGES = [
-  "hmm... it's shy 😊",
-  "it really doesn't want to be picked...",
-  "see? even the button knows the answer...",
-  "you can't catch it — it's on my side 💛",
-  "just say yes... it will keep running forever 🙂",
+  "hmm... u uyalyapti 😊",
+  "u tanlanishni umuman xohlamayapti...",
+  "ko'rdingmi? tugma ham javobni biladi...",
+  "uni tutolmaysan — u mening tomonimda 💛",
+  "shunchaki ha degin... u abadiy qochaveradi 🙂",
 ];
 
 export default function Proposal({ onEnter }: { onEnter: (inView: boolean) => void }) {

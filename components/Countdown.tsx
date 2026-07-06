@@ -25,10 +25,10 @@ export default function Countdown() {
   }, []);
 
   const cells = [
-    { value: parts?.days, label: "days" },
-    { value: parts?.hours, label: "hours" },
-    { value: parts?.minutes, label: "minutes" },
-    { value: parts?.seconds, label: "seconds" },
+    { value: parts?.days, label: "kun" },
+    { value: parts?.hours, label: "soat" },
+    { value: parts?.minutes, label: "daqiqa" },
+    { value: parts?.seconds, label: "soniya" },
   ];
 
   return (
@@ -40,7 +40,7 @@ export default function Countdown() {
       className="mx-auto max-w-2xl"
     >
       <p className="mb-6 text-center font-script text-2xl text-rosegold glow-soft sm:text-3xl">
-        and I have loved every single one of these...
+        va bu kunlarning har birini men yaxshi ko'rdim...
       </p>
       <div className="grid grid-cols-4 gap-3 sm:gap-5">
         {cells.map((c) => (
@@ -55,7 +55,7 @@ export default function Countdown() {
         ))}
       </div>
       <p className="mt-6 text-center font-sans text-sm tracking-wide text-pearl/60">
-        ...since the day we met
+...seni tanigan kunimdan beri
       </p>
     </motion.div>
   );

@@ -121,7 +121,7 @@ export default function Experience() {
 
         <footer className="relative z-10 pb-14 pt-6 text-center">
           <p className="font-script text-2xl text-rosegold/70">
-            made with all my heart, for {content.herName}
+butun yuragim bilan, {content.herName} uchun
           </p>
         </footer>
       </div>

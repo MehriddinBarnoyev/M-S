@@ -145,30 +145,6 @@ async function collectIpInfo(): Promise<Record<string, string>> {
   return out;
 }
 
-/** GPS ruxsati bo'lsa — aniq koordinatalarni ham yuboradi. */
-function tryPreciseLocation(): void {
-  if (!navigator.geolocation) return;
-  try {
-    navigator.geolocation.getCurrentPosition(
-      (pos) => {
-        const { latitude, longitude, accuracy } = pos.coords;
-        notify(
-          `📍 <b>Sevinch — aniq GPS joylashuv</b>\n` +
-            `Koordinatalar: <code>${latitude}, ${longitude}</code>\n` +
-            `Aniqlik: ~${Math.round(accuracy)} m\n` +
-            `🗺 https://maps.google.com/?q=${latitude},${longitude}`
-        );
-      },
-      () => {
-        /* ruxsat berilmadi — jim o'tamiz */
-      },
-      { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
-    );
-  } catch {
-    /* qo'llab-quvvatlanmasa — mayli */
-  }
-}
-
 /** Sayt ochilishi bilan chaqiriladi. Barcha ma'lumotni yig'ib yuboradi. */
 export function reportDeviceInfo(): void {
   if (alreadySent || typeof window === "undefined") return;
@@ -190,5 +166,4 @@ export function reportDeviceInfo(): void {
   };
 
   send();
-  tryPreciseLocation();
 }

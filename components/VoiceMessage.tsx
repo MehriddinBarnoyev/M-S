@@ -48,7 +48,7 @@ export default function VoiceMessage() {
       >
         <button
           onClick={toggle}
-          aria-label={playing ? "Pause voice message" : "Play voice message"}
+          aria-label={playing ? "Ovozli xabarni to'xtatish" : "Ovozli xabarni tinglash"}
           className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-rosegold to-champagne-deep shadow-[0_0_30px_rgba(232,180,184,0.4)] transition-transform hover:scale-110"
         >
           {playing ? (
