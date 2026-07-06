@@ -4,7 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a93f16a-b4fa-485c-9f13-f920761f75f9" name="Changes" comment="main branch" />
+    <list default="true" id="9a93f16a-b4fa-485c-9f13-f920761f75f9" name="Changes" comment="Sevinchxn">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Experience.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Experience.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/HerMessage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/HerMessage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/IntroOverlay.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/IntroOverlay.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Proposal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Proposal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/SectionNotify.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/SectionNotify.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/photo_2026-07-03_15-38-38.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/photo_2026-07-03_15-38-52.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/photo_2026-07-03_15-39-18.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/photo_2026-07-03_15-39-23.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/photo_2026-07-03_15-39-27.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/photo_2026-07-03_15-39-32.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/photo_2026-07-03_15-39-36.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/photo_2026-07-03_15-39-39.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/camera.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/camera.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/content.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/content.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/photos/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/photos/her-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/photos/her-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/photos/her-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/photos/her-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/photos/her-5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/photos/her-6.jpg" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,28 +57,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
-    &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/mehriddin/Projects/MS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "main",
+    "javascript.preferred.runtime.type.id": "node",
+    "js.debugger.nextJs.config.created.client": "true",
+    "js.debugger.nextJs.config.created.server": "true",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "/Users/mehriddin/Projects/MS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="npm.Next.js: server-side">
     <configuration name="Next.js: debug client-side" type="JavascriptDebugType" uri="http://localhost:3000/">
       <method v="2" />
@@ -85,6 +111,7 @@
       <option name="presentableId" value="Default" />
       <updated>1783076143512</updated>
       <workItem from="1783076144893" duration="1245000" />
+      <workItem from="1783330025654" duration="1484000" />
     </task>
     <task id="LOCAL-00001" summary="main branch">
       <option name="closed" value="true" />

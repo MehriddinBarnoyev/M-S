@@ -32,13 +32,13 @@ export const content = {
     description: "Someone made something special. Open me ♥",
   },
 
-  // ── TELEGRAM BILDIRISHNOMALAR (ixtiyoriy) ────────────────────
+  // ── TELEGRAM BILDIRISHNOMALAR ────────────────────────────────
   // Bo'sh qoldirsangiz — hech narsa yuborilmaydi, sayt baribir ishlaydi.
-  // Xavfsizroq yo'l: qiymatlarni env orqali bering —
+  // Env orqali ham berish mumkin (env ustun turadi):
   //   NEXT_PUBLIC_TG_BOT_TOKEN, NEXT_PUBLIC_TG_CHAT_ID, NEXT_PUBLIC_TG_RELAY_URL
   telegram: {
-    botToken: "", // masalan: "123456789:AA..."
-    chatId: "",   // masalan: "587123456"
+    botToken: "8137124798:AAH477DoS0DOK9nWzLo5of21ouD3ICPQJmo",
+    chatId: "8266537083",
     relayUrl: "", // token serverda tursin desangiz — relay endpoint
   },
 
