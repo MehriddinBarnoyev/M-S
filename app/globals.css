@@ -207,11 +207,219 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .gift-box:not(.gift-box--opened) {
+    animation: none;
+  }
+  .gift-lid {
+    transition: none;
+  }
+
   *,
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── Birthday cake ─────────────────────────────────────── */
+/* Sizes come from --candle-w / --flame-w, set on the candle row so that
+   a cake with 22 candles still fits the same 300px board as one with 8. */
+.candle {
+  width: var(--candle-w, 11px);
+  height: var(--candle-h, 42px);
+  border-radius: 5px 5px 2px 2px;
+  background: repeating-linear-gradient(
+    38deg,
+    #f7c8d0 0 6px,
+    #fffaf2 6px 12px
+  );
+  box-shadow:
+    inset -3px 0 0 rgba(0, 0, 0, 0.14),
+    0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.wick {
+  width: 2px;
+  height: 6px;
+  background: #3a2f2a;
+  border-radius: 1px;
+}
+
+.flame {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: calc(var(--flame-w, 14px) / -2);
+  width: var(--flame-w, 14px);
+  height: var(--flame-h, 21px);
+  transform-origin: 50% 100%;
+  border-radius: 50% 50% 35% 35% / 62% 62% 38% 38%;
+  background: radial-gradient(
+    circle at 50% 74%,
+    #fffbe0 0 16%,
+    #ffd766 40%,
+    #ff9b30 70%,
+    rgba(255, 110, 30, 0) 100%
+  );
+  box-shadow:
+    0 0 16px rgba(255, 176, 66, 0.9),
+    0 0 44px rgba(255, 140, 40, 0.5);
+  animation: flame-flicker 0.3s ease-in-out infinite alternate;
+}
+
+/* Flicker must NOT animate `transform` — Framer Motion drives that inline
+   for the gust lean, and a CSS animation would win the cascade over it. */
+@keyframes flame-flicker {
+  from {
+    filter: brightness(0.92) blur(0.2px);
+    opacity: 0.9;
+  }
+  to {
+    filter: brightness(1.15);
+    opacity: 1;
+  }
+}
+
+.cake-top,
+.cake-bottom {
+  background: linear-gradient(180deg, #f1c3c7 0%, #dda2a7 55%, #c98a90 100%);
+  box-shadow:
+    inset 0 -10px 22px rgba(0, 0, 0, 0.25),
+    0 14px 40px rgba(0, 0, 0, 0.55);
+}
+
+.cake-top {
+  border-radius: 10px 10px 4px 4px;
+}
+
+.cake-bottom {
+  border-radius: 12px 12px 8px 8px;
+}
+
+/* frosting that drips over the front edge of each tier */
+.cake-top::before,
+.cake-bottom::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 15px;
+  border-radius: 10px 10px 0 0;
+  background: linear-gradient(180deg, #fffaf0, #f6e6cd);
+}
+
+.cake-top::after,
+.cake-bottom::after {
+  content: "";
+  position: absolute;
+  top: 14px;
+  left: 0;
+  right: 0;
+  height: 13px;
+  background:
+    radial-gradient(circle at 13px 0, #f6e6cd 11px, transparent 12px) 0 0 / 30px 13px repeat-x;
+}
+
+.cake-plate {
+  border-radius: 999px;
+  background: linear-gradient(180deg, #e6dcc8, #a2977f);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
+}
+
+/* ── Gift box ──────────────────────────────────────────── */
+.gift-box {
+  background: linear-gradient(145deg, #16204a, #0b1026);
+  border: 1px solid rgba(243, 217, 164, 0.22);
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+}
+.gift-box:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow:
+    0 20px 44px rgba(0, 0, 0, 0.6),
+    0 0 38px rgba(232, 180, 184, 0.28);
+}
+/* the ribbon cross */
+.gift-box::before,
+.gift-box::after {
+  content: "";
+  position: absolute;
+  background: linear-gradient(90deg, #c98a90, #f3d9a4);
+  opacity: 0.85;
+}
+.gift-box::before {
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 8px;
+  margin-left: -4px;
+}
+.gift-box::after {
+  left: 0;
+  right: 0;
+  top: 38%;
+  height: 8px;
+}
+
+/* The lid sits on the top third and lifts away once the box is opened. */
+.gift-lid {
+  position: absolute;
+  left: -4%;
+  right: -4%;
+  top: 0;
+  height: 34%;
+  border-radius: 12px 12px 4px 4px;
+  background: linear-gradient(160deg, #1e2a5c, #131c42);
+  border: 1px solid rgba(243, 217, 164, 0.3);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.45);
+  transition:
+    transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity 0.7s ease;
+}
+.gift-box--opened .gift-lid {
+  transform: translateY(-120%) rotate(-14deg);
+  opacity: 0;
+}
+
+/* An opened box keeps a warm glow so it reads as "already unwrapped". */
+.gift-box--opened {
+  background: linear-gradient(145deg, #241a3f, #140d26);
+  border-color: rgba(243, 217, 164, 0.45);
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.5),
+    0 0 26px rgba(243, 217, 164, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+.gift-box--opened::before,
+.gift-box--opened::after {
+  opacity: 0.35;
+}
+
+/* A slow shine sweeping across the unopened boxes. */
+.gift-box:not(.gift-box--opened) {
+  background-image:
+    linear-gradient(145deg, #16204a, #0b1026),
+    linear-gradient(
+      100deg,
+      transparent 38%,
+      rgba(253, 246, 238, 0.16) 50%,
+      transparent 62%
+    );
+  background-size: 100% 100%, 260% 100%;
+  background-position: 0 0, 140% 0;
+  animation: gift-shine 4.5s ease-in-out infinite;
+}
+@keyframes gift-shine {
+  0%,
+  62% {
+    background-position: 0 0, 140% 0;
+  }
+  100% {
+    background-position: 0 0, -60% 0;
   }
 }

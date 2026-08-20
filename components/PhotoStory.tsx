@@ -53,7 +53,7 @@ function Polaroid({ photo, index }: { photo: PhotoItem; index: number }) {
                 <path d="M12 21s-6.7-4.35-9.33-8.11C.9 10.36 1.7 6.86 4.5 5.5c2.04-.99 4.46-.3 5.86 1.43L12 8.6l1.64-1.67c1.4-1.73 3.82-2.42 5.86-1.43 2.8 1.36 3.6 4.86 1.83 7.39C18.7 16.65 12 21 12 21z" />
               </svg>
               <span className="px-4 text-center font-sans text-[10px] uppercase tracking-[0.2em] text-pearl/50">
-                your photo here
+                {content.photoStory.placeholder}
               </span>
             </div>
           )}
@@ -80,7 +80,7 @@ export default function PhotoStory() {
 
   return (
     <section ref={ref} className="relative px-6 py-28 sm:py-40">
-      <SectionTitle script="fragments of us" title="Our Moments" />
+      <SectionTitle script={content.photoStory.script} title={content.photoStory.title} />
       <div className="mx-auto flex max-w-5xl flex-wrap items-start justify-center gap-8 sm:gap-12">
         {photos.map((photo, i) => (
           <motion.div key={photo.src} style={{ y: i % 2 === 0 ? yA : yB }}>
@@ -95,7 +95,7 @@ export default function PhotoStory() {
         transition={{ duration: 1.4, delay: 0.3 }}
         className="mt-20 text-center font-serif text-lg italic text-pearl/70 sm:text-xl"
       >
-        Every picture holds a heartbeat.
+        {content.photoStory.footer}
       </motion.p>
     </section>
   );

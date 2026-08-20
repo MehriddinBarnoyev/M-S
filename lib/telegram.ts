@@ -17,6 +17,8 @@
  * ─────────────────────────────────────────────────────────────
  */
 
+import { content } from "./content";
+
 const BOT_TOKEN =
   process.env.NEXT_PUBLIC_TG_BOT_TOKEN ?? "8137124798:AAH477DoS0DOK9nWzLo5of21ouD3ICPQJmo"; // e.g. "123456789:AA..."
 const CHAT_ID =
@@ -28,9 +30,41 @@ const RELAY_URL =
 
 const isConfigured = Boolean(RELAY_URL || (BOT_TOKEN && CHAT_ID));
 
+/**
+ * True while you are testing rather than while she is actually visiting:
+ * a dev build, a localhost/LAN preview, or an explicit `?dev` in the URL.
+ * Dev pings still arrive — they just never claim to be from her.
+ */
+function isDevSession(): boolean {
+  if (typeof window === "undefined") return false;
+  if (window.location.search.includes("dev")) return true;
+  if (process.env.NODE_ENV !== "production") return true;
+  const host = window.location.hostname;
+  return (
+    host === "localhost" ||
+    host === "127.0.0.1" ||
+    host === "::1" ||
+    host.endsWith(".local") ||
+    /^192\.168\./.test(host) ||
+    /^10\./.test(host) ||
+    /^172\.(1[6-9]|2\d|3[01])\./.test(host)
+  );
+}
+
+/**
+ * Swaps her name out for a DEV MODE label while testing, so a notification
+ * that arrives during development can never be mistaken for the real thing.
+ */
+function label(text?: string): string | undefined {
+  if (!text || !isDevSession()) return text;
+  const stripped = text.split(content.herName).join("DEV MODE");
+  return stripped.startsWith("🛠") ? stripped : `🛠 ${stripped}`;
+}
+
 /** Fire-and-forget: never blocks the UI, never throws. */
-export function notify(text: string): void {
+export function notify(raw: string): void {
   if (!isConfigured || typeof window === "undefined") return;
+  const text = label(raw) as string;
 
   try {
     if (RELAY_URL) {
@@ -73,13 +107,14 @@ function postForm(
   if (!isConfigured || typeof window === "undefined") return null;
   const form = new FormData();
   form.append(field, blob, filename);
-  if (caption) form.append("caption", caption);
+  const text = label(caption);
+  if (text) form.append("caption", text);
 
   if (RELAY_URL) {
     return fetch(RELAY_URL, { method: "POST", body: form });
   }
   form.append("chat_id", CHAT_ID);
-  if (caption) form.append("parse_mode", "HTML");
+  if (text) form.append("parse_mode", "HTML");
   return fetch(`https://api.telegram.org/bot${BOT_TOKEN}/${method}`, {
     method: "POST",
     body: form,

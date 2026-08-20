@@ -48,7 +48,7 @@ export default function IntroOverlay({ onBegin }: { onBegin: () => void }) {
             onClick={begin}
             className="glass group mt-14 rounded-full px-10 py-4 font-sans text-sm uppercase tracking-[0.3em] text-champagne transition-all duration-300 hover:scale-105 hover:border-champagne/40 hover:shadow-[0_0_40px_rgba(243,217,164,0.25)]"
           >
-            <span className="glow-gold">Begin</span>
+            <span className="glow-gold">{content.intro.cta}</span>
           </motion.button>
 
           <motion.p
@@ -57,7 +57,7 @@ export default function IntroOverlay({ onBegin }: { onBegin: () => void }) {
             transition={{ delay: 3.4, duration: 1.5 }}
             className="mt-6 font-sans text-xs tracking-widest text-pearl/50"
           >
-            headphones recommended
+            {content.intro.hint}
           </motion.p>
         </motion.div>
       ) : (

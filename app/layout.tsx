@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Playfair_Display, Great_Vibes, Inter, Dancing_Script } from "next/font/google";
 import "./globals.css";
+import { content } from "@/lib/content";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -30,29 +31,26 @@ const inter = Inter({
 // preview image resolves to an absolute URL on that domain.
 const SITE_URL = "https://my-dilnuraa.netlify.app";
 
+// What she sees in the Telegram/WhatsApp link preview before she taps it.
+const TITLE = content.birthday.share.title;
+const DESCRIPTION = content.birthday.share.description;
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "A little surprise, made just for you",
-  description: "Someone made something special. Open me ♥",
+  title: TITLE,
+  description: DESCRIPTION,
   openGraph: {
-    title: "A little surprise, made just for you",
-    description: "Someone made something special. Open me ♥",
+    title: TITLE,
+    description: DESCRIPTION,
     type: "website",
     url: SITE_URL,
-    images: [
-      {
-        url: "/og-preview.png",
-        width: 1200,
-        height: 630,
-        alt: "A little surprise",
-      },
-    ],
+    // The preview image comes from app/opengraph-image.tsx, which is
+    // rendered at build time — leaving `images` unset lets Next inject it.
   },
   twitter: {
     card: "summary_large_image",
-    title: "A little surprise, made just for you",
-    description: "Someone made something special. Open me ♥",
-    images: ["/og-preview.png"],
+    title: TITLE,
+    description: DESCRIPTION,
   },
 };
 

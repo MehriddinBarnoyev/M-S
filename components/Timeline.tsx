@@ -5,13 +5,17 @@ import { useRef } from "react";
 import { content } from "@/lib/content";
 import { SectionTitle } from "@/components/ui";
 
-function HeartMark() {
+/** A lit candle marks each chapter of her story. */
+function CandleMark() {
   return (
     <div className="relative z-10 flex h-10 w-10 items-center justify-center">
-      <div className="absolute inset-0 rounded-full bg-rosegold/15 blur-md" />
-      <div className="glass flex h-10 w-10 items-center justify-center rounded-full border-rosegold/30">
-        <svg viewBox="0 0 24 24" className="h-4 w-4 text-rosegold" fill="currentColor" aria-hidden="true">
-          <path d="M12 21s-6.7-4.35-9.33-8.11C.9 10.36 1.7 6.86 4.5 5.5c2.04-.99 4.46-.3 5.86 1.43L12 8.6l1.64-1.67c1.4-1.73 3.82-2.42 5.86-1.43 2.8 1.36 3.6 4.86 1.83 7.39C18.7 16.65 12 21 12 21z" />
+      <div className="absolute inset-0 rounded-full bg-champagne/20 blur-md" />
+      <div className="glass flex h-10 w-10 items-center justify-center rounded-full border-champagne/30">
+        <svg viewBox="0 0 24 24" className="h-4 w-4 text-champagne" fill="currentColor" aria-hidden="true">
+          {/* flame */}
+          <path d="M12 2c1.9 2.2 3.2 3.9 3.2 5.6a3.2 3.2 0 1 1-6.4 0C8.8 5.9 10.1 4.2 12 2z" />
+          {/* candle body */}
+          <rect x="10.2" y="11.4" width="3.6" height="10.6" rx="1.1" opacity="0.75" />
         </svg>
       </div>
     </div>
@@ -28,7 +32,7 @@ export default function Timeline() {
 
   return (
     <section className="relative px-6 py-28 sm:py-40">
-      <SectionTitle script="chapter by chapter" title="Our Story" />
+      <SectionTitle script={content.timeline.script} title={content.timeline.title} />
 
       <div ref={ref} className="relative mx-auto max-w-3xl">
         {/* Growing spine */}
@@ -39,7 +43,7 @@ export default function Timeline() {
         />
 
         <div className="space-y-20 sm:space-y-28">
-          {content.timeline.map((item, i) => {
+          {content.timeline.items.map((item, i) => {
             const left = i % 2 === 0;
             return (
               <div
@@ -55,7 +59,7 @@ export default function Timeline() {
                     viewport={{ once: true, amount: 0.8 }}
                     transition={{ duration: 0.7, type: "spring", bounce: 0.45 }}
                   >
-                    <HeartMark />
+                    <CandleMark />
                   </motion.div>
                 </div>
 

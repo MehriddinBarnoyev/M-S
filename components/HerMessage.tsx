@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import { content } from "@/lib/content";
 import { notify, notifyPhoto, notifyVideo, notifyAudio } from "@/lib/telegram";
 
 type MediaKind = "photo" | "video" | "audio";
@@ -15,6 +16,7 @@ const MAX_MB = 45; // Telegram bot upload limit is ~50MB; stay safely under
  * it herself, sees a preview, and taps send. Nothing leaves without her tap.
  */
 export default function HerMessage() {
+  const t = content.birthday.reply;
   const [text, setText] = useState("");
   const [media, setMedia] = useState<Attachment | null>(null);
   const [sent, setSent] = useState(false);
@@ -102,7 +104,7 @@ export default function HerMessage() {
       else if (media.kind === "video") notifyVideo(media.blob, caption);
       else notifyAudio(media.blob, caption);
     } else {
-      notify(`✍️ <b>Dilnura</b> senga bir og'iz yozdi:\n\n“${msg}”`);
+      notify(`✍️ <b>Dilnura</b> menga bir og'iz yozdi:\n\n“${msg}”`);
     }
     setSent(true);
   };
@@ -118,10 +120,10 @@ export default function HerMessage() {
       </div>
 
       <h3 className="font-script text-3xl text-rosegold glow-soft sm:text-4xl">
-        Menga bir narsa yuborasanmi?
+        {t.title}
       </h3>
       <p className="mx-auto mt-3 max-w-sm font-serif text-base italic text-pearl/70">
-        Yoz, rasm tashla, video yoki ovozli xabar yubor — o'zing tanla 💛
+        {t.subtitle}
       </p>
 
       <AnimatePresence mode="wait">
@@ -137,35 +139,35 @@ export default function HerMessage() {
               onChange={(e) => setText(e.target.value)}
               rows={3}
               maxLength={500}
-              placeholder="Yuragingdagini shu yerga yoz..."
+              placeholder={t.placeholder}
               className="glass w-full resize-none rounded-3xl px-6 py-4 text-center font-serif text-lg text-pearl placeholder:text-pearl/35 focus:outline-none focus:ring-1 focus:ring-rosegold/50"
             />
 
             {/* Attachment options */}
             <div className="mt-4 flex flex-wrap justify-center gap-3">
-              <AttachBtn label="Rasm" emoji="📷" onClick={() => photoInput.current?.click()} />
-              <AttachBtn label="Video" emoji="🎥" onClick={() => videoInput.current?.click()} />
+              <AttachBtn label={t.photo} emoji="📷" onClick={() => photoInput.current?.click()} />
+              <AttachBtn label={t.video} emoji="🎥" onClick={() => videoInput.current?.click()} />
               {recording ? (
                 <button
                   onClick={stopRec}
                   className="flex items-center gap-2 rounded-full bg-rosegold px-5 py-2.5 font-serif text-sm font-semibold text-night"
                 >
                   <span className="h-2.5 w-2.5 animate-pulse rounded-full bg-red-600" />
-                  To'xtatish
+                  {t.stop}
                 </button>
               ) : (
-                <AttachBtn label="Ovoz" emoji="🎙" onClick={startRec} />
+                <AttachBtn label={t.audio} emoji="🎙" onClick={startRec} />
               )}
             </div>
 
             {recording && (
               <p className="mt-3 font-serif text-sm italic text-rosegold">
-                Yozilyapti... gapiravergin 🎙
+                {t.recording}
               </p>
             )}
             {tooBig && (
               <p className="mt-3 font-serif text-sm italic text-red-300/90">
-                Fayl juda katta (max {MAX_MB}MB). Qisqaroq video/rasm tanlab ko'r.
+                {t.tooBig.replace("{n}", String(MAX_MB))}
               </p>
             )}
 
@@ -180,7 +182,7 @@ export default function HerMessage() {
                 >
                   <button
                     onClick={clearAttachment}
-                    aria-label="O'chirish"
+                    aria-label={t.remove}
                     className="absolute right-3 top-3 z-10 flex h-7 w-7 items-center justify-center rounded-full bg-night/70 text-pearl transition-colors hover:text-rosegold"
                   >
                     ✕
@@ -194,7 +196,7 @@ export default function HerMessage() {
                   )}
                   {media.kind === "audio" && (
                     <div className="px-2 py-4">
-                      <p className="mb-2 font-serif text-sm text-rosegold">🎙 Ovozli xabar tayyor</p>
+                      <p className="mb-2 font-serif text-sm text-rosegold">{t.audioReady}</p>
                       <audio src={media.url} controls className="w-full" />
                     </div>
                   )}
@@ -214,7 +216,7 @@ export default function HerMessage() {
               disabled={!canSend}
               className="btn-yes mt-6 rounded-full px-10 py-3 font-serif text-lg font-semibold text-night disabled:cursor-not-allowed disabled:opacity-40"
             >
-              Yuborish
+              {t.send}
               <span className="ml-2" aria-hidden="true">♥</span>
             </motion.button>
           </motion.div>
@@ -228,10 +230,10 @@ export default function HerMessage() {
           >
             <div className="mb-3 text-4xl" aria-hidden="true">💌</div>
             <p className="font-script text-3xl text-rosegold glow-soft sm:text-4xl">
-              Yuborildi — rahmat, Dilnura
+              {t.sentTitle}
             </p>
             <p className="mt-3 font-serif text-base italic text-pearl/70">
-              Har bir so'zing, har bir lahzang men uchun qimmatli.
+              {t.sentNote}
             </p>
           </motion.div>
         )}

@@ -10,7 +10,7 @@ export default function LoveLetter() {
 
   return (
     <section className="relative px-6 py-28 sm:py-40">
-      <SectionTitle script="sealed with everything I have" title="A Letter For You" />
+      <SectionTitle script={content.letter.script} title={content.letter.title} />
 
       <div className="mx-auto flex max-w-2xl flex-col items-center">
         <AnimatePresence mode="wait">
@@ -21,7 +21,7 @@ export default function LoveLetter() {
               exit={{ opacity: 0, y: 40, scale: 0.9 }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
               className="group relative outline-none"
-              aria-label="Open the letter"
+              aria-label="Xatni ochish"
               style={{ perspective: 1000 }}
             >
               {/* Envelope body */}
@@ -48,7 +48,7 @@ export default function LoveLetter() {
                 </div>
               </motion.div>
               <p className="mt-8 text-center font-sans text-xs uppercase tracking-[0.35em] text-champagne/80 transition-colors group-hover:text-champagne">
-                tap to open
+                {content.letter.cta}
               </p>
             </motion.button>
           ) : (

@@ -17,11 +17,18 @@ export default function CrystalScene({ calm = false }: { calm?: boolean }) {
     const mount = mountRef.current;
     if (!mount) return;
 
-    const renderer = new THREE.WebGLRenderer({
-      antialias: true,
-      alpha: true,
-      premultipliedAlpha: false,
-    });
+    // A phone with WebGL blocked would otherwise throw here and take the
+    // whole page down with it — the finale is worth less than the site.
+    let renderer: THREE.WebGLRenderer;
+    try {
+      renderer = new THREE.WebGLRenderer({
+        antialias: true,
+        alpha: true,
+        premultipliedAlpha: false,
+      });
+    } catch {
+      return;
+    }
     renderer.setClearColor(0x000000, 0);
     const maxDpr = window.innerWidth < 640 ? 1.5 : 2;
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, maxDpr));

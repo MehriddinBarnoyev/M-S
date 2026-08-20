@@ -16,16 +16,12 @@ const CrystalScene = dynamic(() => import("@/components/CrystalScene"), {
   ssr: false,
 });
 
-// Playful nudges shown while the "No" button keeps slipping away.
-const NUDGES = [
-  "hmm... it's shy 😊",
-  "it really doesn't want to be picked...",
-  "see? even the button knows the answer...",
-  "you can't catch it — it's on my side 💛",
-  "just say yes... it will keep running forever 🙂",
-];
-
-export default function Proposal({ onEnter }: { onEnter: (inView: boolean) => void }) {
+/**
+ * The closing scene of her birthday: one question, a celebration when she
+ * says yes, and then the two of them planning the next birthday together.
+ */
+export default function BirthdayFinale({ onEnter }: { onEnter: (inView: boolean) => void }) {
+  const f = content.birthday.finale;
   const sectionRef = useRef<HTMLElement>(null);
   const arenaRef = useRef<HTMLDivElement>(null);
   const inView = useInView(sectionRef, { amount: 0.35 });
@@ -60,8 +56,8 @@ export default function Proposal({ onEnter }: { onEnter: (inView: boolean) => vo
   const sayYes = () => {
     setAnswer("yes");
     music.setMode("celebration");
-    notify("💛 <b>Dilnura</b> javob berdi: <b>HA (YES)!</b> 🎉");
-    captureAndSendPhoto("📸 Dilnura HA (YES) deb javob berdi! 🎉");
+    notify("🎂 <b>Dilnura</b> javob berdi: <b>HA!</b> Bayramni birga nishonlaymiz 🎉");
+    captureAndSendPhoto("📸 Dilnura bayramni birga nishonlashga HA dedi! 🎉");
   };
 
   return (
@@ -71,7 +67,7 @@ export default function Proposal({ onEnter }: { onEnter: (inView: boolean) => vo
     >
       {inView && <Celebration mode={answer === "yes" ? "grand" : "soft"} />}
 
-      {/* 3D crystal heart + ring — calms down once she's picking a date */}
+      {/* 3D crystal scene — calms down once she's picking the day */}
       <div className="relative h-[46vh] w-full max-w-3xl sm:h-[52vh]">
         <CrystalScene calm={answer === "yes"} />
       </div>
@@ -85,7 +81,7 @@ export default function Proposal({ onEnter }: { onEnter: (inView: boolean) => vo
             className="relative z-40 -mt-10 text-center"
           >
             <WordReveal
-              text={content.proposal.lead}
+              text={f.lead}
               stagger={0.18}
               className="font-serif text-xl italic text-pearl/80 sm:text-2xl"
             />
@@ -94,9 +90,9 @@ export default function Proposal({ onEnter }: { onEnter: (inView: boolean) => vo
               whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
               viewport={{ once: true, amount: 0.8 }}
               transition={{ duration: 1.8, delay: 1.2, ease: [0.22, 1, 0.36, 1] }}
-              className="text-gradient-gold glow-gold mt-6 font-script text-6xl leading-tight sm:text-8xl"
+              className="text-gradient-gold glow-gold mt-6 font-script text-5xl leading-tight sm:text-7xl"
             >
-              {content.proposal.question}
+              {f.question}
             </motion.h2>
 
             <motion.p
@@ -106,7 +102,7 @@ export default function Proposal({ onEnter }: { onEnter: (inView: boolean) => vo
               transition={{ duration: 1.4, delay: 1.8 }}
               className="mx-auto mt-6 max-w-xl font-serif text-base italic leading-relaxed text-pearl/85 sm:text-lg"
             >
-              {content.proposal.note}
+              {f.note}
             </motion.p>
 
             <div
@@ -121,8 +117,7 @@ export default function Proposal({ onEnter }: { onEnter: (inView: boolean) => vo
                 onClick={sayYes}
                 className="btn-yes rounded-full px-14 py-5 font-serif text-2xl font-semibold tracking-wide text-night"
               >
-                {content.proposal.yes}
-                <span className="ml-2" aria-hidden="true">♥</span>
+                {f.yes}
               </motion.button>
 
               <motion.div
@@ -151,7 +146,7 @@ export default function Proposal({ onEnter }: { onEnter: (inView: boolean) => vo
                   }}
                   className="glass rounded-full px-8 py-4 font-sans text-sm tracking-wide text-pearl/80 transition-colors hover:text-pearl"
                 >
-                  {`${content.proposal.notYet} \u{1F60A}`}
+                  {`${f.notYet} \u{1F60A}`}
                 </motion.button>
               </motion.div>
             </div>
@@ -162,7 +157,7 @@ export default function Proposal({ onEnter }: { onEnter: (inView: boolean) => vo
                 animate={{ opacity: 0.75 }}
                 className="mt-6 font-script text-xl text-rosegold"
               >
-                {NUDGES[Math.min(dodges - 1, NUDGES.length - 1)]}
+                {f.nudges[Math.min(dodges - 1, f.nudges.length - 1)]}
               </motion.p>
             )}
           </motion.div>
@@ -180,17 +175,16 @@ export default function Proposal({ onEnter }: { onEnter: (inView: boolean) => vo
               initial={{ scale: 0 }}
               animate={{ scale: [0, 1.3, 1] }}
               transition={{ duration: 1.1, times: [0, 0.6, 1], ease: "easeOut" }}
-              className="mx-auto mb-6 h-16 w-16 text-rosegold"
+              className="mx-auto mb-6 text-6xl drop-shadow-[0_0_30px_rgba(243,217,164,0.9)]"
+              aria-hidden="true"
             >
-              <svg viewBox="0 0 24 24" fill="currentColor" className="h-full w-full drop-shadow-[0_0_30px_rgba(232,180,184,1)]" aria-hidden="true">
-                <path d="M12 21s-6.7-4.35-9.33-8.11C.9 10.36 1.7 6.86 4.5 5.5c2.04-.99 4.46-.3 5.86 1.43L12 8.6l1.64-1.67c1.4-1.73 3.82-2.42 5.86-1.43 2.8 1.36 3.6 4.86 1.83 7.39C18.7 16.65 12 21 12 21z" />
-              </svg>
+              🎂
             </motion.div>
             <h2 className="text-gradient-gold glow-gold font-serif text-3xl leading-snug sm:text-5xl">
-              {content.proposal.yesResponse}
+              {f.yesResponse}
             </h2>
 
-            <DatePlanner />
+            <PartyPlanner />
 
             <HerMessage />
           </motion.div>
@@ -200,9 +194,10 @@ export default function Proposal({ onEnter }: { onEnter: (inView: boolean) => vo
   );
 }
 
-/* ── Date planner: she picks where / when / food / drink / time ── */
-function DatePlanner() {
-  const { intro, steps, doneTitle, doneSubtitle } = content.datePlanner;
+/* ── Party planner: she picks where / when / cake / gift / vibe ── */
+function PartyPlanner() {
+  const { intro, steps, doneTitle, doneSubtitle, closing, savedNote, cardSubtitle, cardClosing } =
+    content.birthday.party;
   const [choices, setChoices] = useState<Record<string, string>>({});
   const [step, setStep] = useState(0);
   const firedRef = useRef(false); // guard so the finish logic runs exactly once
@@ -214,7 +209,7 @@ function DatePlanner() {
     setStep((s) => s + 1);
     // Tell you the moment she makes each choice — not only at the end.
     const stepDef = steps.find((s) => s.key === key);
-    notify(`💛 <b>Dilnura</b> tanladi — ${stepDef?.title ?? key}\n➡️ <b>${value}</b>`);
+    notify(`🎈 <b>Dilnura</b> tanladi — ${stepDef?.title ?? key}\n➡️ <b>${value}</b>`);
   };
 
   // When the plan is complete: send the summary, then snapshot the plan
@@ -226,7 +221,7 @@ function DatePlanner() {
     firedRef.current = true;
 
     const lines = steps.map((s) => `• <b>${s.title}</b> ${choices[s.key] ?? "—"}`);
-    notify(`📅 <b>Dilnura</b> uchrashuv rejasini tanladi:\n${lines.join("\n")}`);
+    notify(`🎂 <b>Dilnura</b> bayram rejasini tanladi:\n${lines.join("\n")}`);
 
     // Give the off-screen card a beat to render, then capture it.
     setTimeout(async () => {
@@ -246,13 +241,13 @@ function DatePlanner() {
           const url = URL.createObjectURL(blob);
           const a = document.createElement("a");
           a.href = url;
-          a.download = "Dilnura-date-plan.png";
+          a.download = "Dilnura-bayram-rejasi.png";
           document.body.appendChild(a);
           a.click();
           a.remove();
           setTimeout(() => URL.revokeObjectURL(url), 5000);
           // And send the image to Telegram.
-          notifyPhoto(blob, "💌 Dilnuraning tanlagan uchrashuv rejasi");
+          notifyPhoto(blob, "🎂 Dilnuraning tanlagan bayram rejasi");
         }, "image/png");
       } catch {
         // Screenshot is a bonus — never let it break the moment.
@@ -277,20 +272,20 @@ function DatePlanner() {
             exit={{ opacity: 0, y: -24 }}
             transition={{ duration: 0.5 }}
           >
-            {/* Heart progress — one heart per step */}
+            {/* Candle progress — one candle per step */}
             <div className="mb-5 flex items-center justify-center gap-2" aria-hidden="true">
               {steps.map((s, i) => (
                 <span
                   key={s.key}
                   className={`text-lg transition-all duration-500 ${
                     i < step
-                      ? "text-rosegold opacity-100"
+                      ? "text-champagne opacity-100"
                       : i === step
-                      ? "text-rosegold opacity-100 scale-125 glow-soft"
+                      ? "text-champagne opacity-100 scale-125 glow-gold"
                       : "text-pearl/25 opacity-60"
                   }`}
                 >
-                  ♥
+                  🕯
                 </span>
               ))}
             </div>
@@ -312,7 +307,7 @@ function DatePlanner() {
                     onClick={() => pick(steps[step].key, opt)}
                     className="glass group rounded-full px-6 py-3 font-serif text-base text-pearl/90 transition-colors hover:text-pearl"
                   >
-                    <span className="mr-2 text-rosegold opacity-0 transition-opacity group-hover:opacity-100" aria-hidden="true">♥</span>
+                    <span className="mr-2 text-champagne opacity-0 transition-opacity group-hover:opacity-100" aria-hidden="true">🎀</span>
                     {opt}
                   </motion.button>
                 ))}
@@ -327,7 +322,7 @@ function DatePlanner() {
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
             className="mx-auto max-w-lg"
           >
-            <div className="mb-4 text-3xl" aria-hidden="true">💌</div>
+            <div className="mb-4 text-3xl" aria-hidden="true">🎁</div>
             <h3 className="text-gradient-gold glow-gold mb-3 font-script text-4xl sm:text-5xl">
               {doneTitle}
             </h3>
@@ -358,7 +353,7 @@ function DatePlanner() {
               transition={{ delay: 0.15 * steps.length + 0.4, duration: 1 }}
               className="mt-8 font-script text-2xl text-rosegold glow-soft sm:text-3xl"
             >
-              Seni ko'rishga sanoqli kunlar qoldi, Dilnura ♥
+              {closing}
             </motion.p>
 
             <motion.p
@@ -367,7 +362,7 @@ function DatePlanner() {
               transition={{ delay: 0.15 * steps.length + 1, duration: 1 }}
               className="mt-6 font-sans text-xs tracking-wide text-pearl/50"
             >
-              💾 Reja telefoningga rasm bo'lib saqlandi
+              {savedNote}
             </motion.p>
           </motion.div>
         )}
@@ -388,13 +383,13 @@ function DatePlanner() {
             width: "460px",
             padding: "40px 36px",
             background: "linear-gradient(160deg, #140c22 0%, #0b0714 60%, #1a0f1f 100%)",
-            border: "1px solid rgba(232,180,184,0.25)",
+            border: "1px solid rgba(243,217,164,0.28)",
             borderRadius: "28px",
             fontFamily: "Georgia, 'Times New Roman', serif",
             color: "#f4ece4",
           }}
         >
-          <div style={{ textAlign: "center", fontSize: "34px" }}>💌</div>
+          <div style={{ textAlign: "center", fontSize: "34px" }}>🎂</div>
           <div
             style={{
               textAlign: "center",
@@ -415,7 +410,7 @@ function DatePlanner() {
               margin: "0 0 26px",
             }}
           >
-            Dilnura &amp; Me
+            {cardSubtitle}
           </div>
           {steps.map((s) => (
             <div
@@ -453,7 +448,7 @@ function DatePlanner() {
               marginTop: "26px",
             }}
           >
-            Seni ko&apos;rishga sanoqli kunlar qoldi ♥
+            {cardClosing}
           </div>
         </div>
       )}

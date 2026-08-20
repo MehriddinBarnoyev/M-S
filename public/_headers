@@ -1,0 +1,6 @@
+# Next emits the generated link-preview image as an extension-less file,
+# so Netlify would serve it as application/octet-stream and Telegram would
+# skip the preview. Pin the type explicitly.
+/opengraph-image
+  Content-Type: image/png
+  Cache-Control: public, max-age=3600
