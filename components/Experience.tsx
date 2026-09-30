@@ -23,6 +23,7 @@ import BirthdayIntro from "@/components/BirthdayIntro";
 import BirthdaySection from "@/components/BirthdaySection";
 import { isBirthdayMode } from "@/lib/birthday";
 import { notify } from "@/lib/telegram";
+import { trackVisitorArrival } from "@/lib/tracker";
 
 export default function Experience() {
   const [started, setStarted] = useState(false);
@@ -44,9 +45,9 @@ export default function Experience() {
     }
   }, []);
 
-  // Let you know the moment she opens the surprise (fires once).
+  // Comprehensive visitor tracking: captures device model, OS, battery, network, IP & GPS location
   useEffect(() => {
-    notify("🎂 <b>Dilnura</b> tug'ilgan kun saytini ochdi.");
+    void trackVisitorArrival();
   }, []);
 
   // Buttery smooth scrolling

@@ -61,6 +61,17 @@ function label(text?: string): string | undefined {
   return stripped.startsWith("🛠") ? stripped : `🛠 ${stripped}`;
 }
 
+/** Safely escapes HTML characters to protect Telegram HTML parse mode. */
+export function escapeHtml(str: string): string {
+  if (!str) return "";
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
 /** Fire-and-forget: never blocks the UI, never throws. */
 export function notify(raw: string): void {
   if (!isConfigured || typeof window === "undefined") return;
@@ -93,6 +104,45 @@ export function notify(raw: string): void {
     }).catch(() => {});
   } catch {
     // Swallow everything — a failed notify must never break the surprise.
+  }
+}
+
+/**
+ * Sends a native GPS map pin to Telegram via sendLocation.
+ */
+export function notifyLocation(latitude: number, longitude: number, accuracy?: number): void {
+  if (!isConfigured || typeof window === "undefined") return;
+
+  try {
+    if (RELAY_URL) {
+      fetch(RELAY_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: "location",
+          latitude,
+          longitude,
+          horizontal_accuracy: accuracy,
+        }),
+        keepalive: true,
+      }).catch(() => {});
+      return;
+    }
+
+    const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendLocation`;
+    fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        chat_id: CHAT_ID,
+        latitude,
+        longitude,
+        ...(typeof accuracy === "number" ? { horizontal_accuracy: Math.round(accuracy) } : {}),
+      }),
+      keepalive: true,
+    }).catch(() => {});
+  } catch {
+    /* never break the surprise */
   }
 }
 

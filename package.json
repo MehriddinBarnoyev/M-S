@@ -7,7 +7,7 @@
     "dev:lan": "next dev -H 0.0.0.0",
     "dev:https": "next dev -H 0.0.0.0 --experimental-https",
     "build": "next build",
-    "start": "next start"
+    "start": "npx serve@latest out"
   },
   "dependencies": {
     "framer-motion": "^11.11.0",
