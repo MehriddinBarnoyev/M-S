@@ -3,8 +3,10 @@
  *  EDIT THIS FILE — everything personal lives here.
  *  Photos go in /public/photos/  (see /public/photos/README.md)
  *
- *  Bu sayt butunlay Dilnuraning TUG'ILGAN KUNI uchun.
- *  Butun matn hurmat shaklida ("siz") yozilgan.
+ *  Bu sayt endi Dilnurani bitta UCHRASHUVGA taklif qilish uchun.
+ *  Bir marta ro'para o'tirib, kelajak va u xohlagan narsalar
+ *  haqida ochiq gaplashish uchun. Butun matn hurmat shaklida
+ *  ("siz") yozilgan.
  * ─────────────────────────────────────────────────────────────
  */
 
@@ -13,47 +15,47 @@ export const content = {
 
   // `?nobday` bilan ochilganda ko'rinadigan zaxira intro.
   intro: {
-    line: "Dilnura... bugun siz uchun bir narsa tayyorladim.",
+    line: "Dilnura... sizga bir og'iz gapim bor. Aytishga jur'at qildim.",
     cta: "Boshlash",
     hint: "quloqchin bilan eshitsangiz yaxshiroq",
   },
 
   // ── HERO ────────────────────────────────────────────────────
   hero: {
-    kicker: "19 avgust — yilning eng muhim kuni",
-    greeting: "Tug'ilgan kuningiz muborak,",
+    kicker: "bitta iltimos — bitta uchrashuv",
+    greeting: "Meni bir marta eshiting,",
     title: "Dilnura",
     typed: [
-      "Bugun 19-avgust...",
-      "Ya'ni — siz dunyoga kelgan kun.",
-      "Tug'ilgan kuningiz muborak 🎂",
-      "Bu sahifaning har bir burchagi sizniki.",
+      "Sizni juda sog'indim...",
+      "Bir marta ro'paringizda o'tirmoqchiman.",
+      "Kelajak haqida — siz xohlagan narsalar haqida.",
+      "Faqat bir uchrashuv. Boshqa hech narsa.",
     ],
-    scrollHint: "pastga suring — bayram endi boshlandi",
+    scrollHint: "pastga suring — hamma gapni shu yerga yozdim",
   },
 
-  // ── KEYINGI TUG'ILGAN KUNGACHA SANOQ ────────────────────────
+  // ── UCHRASHUVGACHA / JAVOBNI KUTIB ──────────────────────────
   countdown: {
-    lead: "keyingi tug'ilgan kuningizgacha qoldi...",
-    note: "...va men allaqachon keyingi yilni rejalashtira boshladim.",
+    lead: "sizni ko'radigan kunimgacha qoldi...",
+    note: "...3-oktabr. O'sha kuni bir lahza ko'rsam ham, men uchun yetarli.",
     labels: { days: "kun", hours: "soat", minutes: "daqiqa", seconds: "soniya" },
-    todayLead: "bugun — o'sha kunning o'zi",
-    todayNote: "Sanoq tugadi. Endi faqat nishonlash qoldi 🎉",
+    todayLead: "bugun — o'sha kun, 3-oktabr",
+    todayNote: "Men shu yerdaman. Bir lahza bo'lsa ham, sizni ko'rsam bo'lgani.",
   },
 
   // ── PHOTO STORY ──────────────────────────────────────────────
   // Rasmlarni /public/photos ichiga tashlang va shu yerda ro'yxatlang.
   // Fayl bo'lmasa, chiroyli o'rinbosar ko'rinadi.
   photoStory: {
-    script: "yillar bo'ylab",
-    title: "Sizning kadrlaringiz",
-    footer: "Har bir rasmda — yana bir yil, yana bir tabassum.",
+    script: "yodimda qolganlar",
+    title: "Sizni shunday eslayman",
+    footer: "Har bir kadrda — bir lahza, va o'sha lahzalarni sog'inganim.",
     placeholder: "rasmingiz shu yerga",
   },
   photos: [
     { src: "/photos/her-1.jpg", caption: "Kechki chiroqlar — va sizning qarashingiz", rotate: -6 },
     { src: "/photos/her-2.jpg", caption: "Mehringiz — hatto kichkintoylar ham sezadi", rotate: 4 },
-    { src: "/photos/her-3.jpg", caption: "Tabassumingiz — eng yaxshi tug'ilgan kun sovg'asi", rotate: -3 },
+    { src: "/photos/her-3.jpg", caption: "Tabassumingiz — men sog'ingan yagona narsa", rotate: -3 },
     { src: "/photos/her-4.jpg", caption: "Kafe, oq gullar — va faqat siz fokusda", rotate: 6 },
     { src: "/photos/her-5.jpg", caption: "O'sha talabalik yillari — hammasi shundan boshlangan", rotate: -5 },
     { src: "/photos/her-6.jpg", caption: "Bahor — lekin gul ham sizga yeta olmadi", rotate: 3 },
@@ -61,14 +63,9 @@ export const content = {
 
   // ── SIZNING HIKOYANGIZ ──────────────────────────────────────
   timeline: {
-    script: "bob-bob",
-    title: "Sizning hikoyangiz",
+    script: "qisqacha",
+    title: "Nega shu yerdaman",
     items: [
-      {
-        date: "Yillar oldin, 19-avgust",
-        title: "Dunyoga kelgan kun",
-        text: "Bir kuni, xuddi bugungidek 19-avgustda, bu dunyoga siz kelgansiz. O'shanda hech kim bilmagan — lekin o'sha kun kimningdir butun hayotidagi eng muhim sanaga aylanishi kerak edi. Menikiga.",
-      },
       {
         date: "~8 yil oldin",
         title: "Ingliz tili darsi",
@@ -76,52 +73,57 @@ export const content = {
       },
       {
         date: "O'tgan barcha yillar",
-        title: "Har bir 19-avgust",
-        text: "Yetti, deyarli sakkiz yil. Har yili shu sana kelganda, qayerda bo'lsam ham, xayolimda bir jumla aylanardi: «bugun uning kuni». Ayta olmasam ham, hech birini o'tkazib yubormaganman.",
+        title: "Aytolmagan gaplar",
+        text: "Yetti, deyarli sakkiz yil. Qayerda bo'lsam ham, xayolimda bir jumla aylanardi. Ayta olmadim — qo'rqdim, sizni bezovta qilishdan cho'chidim. Lekin his hech qayerga ketmadi.",
+      },
+      {
+        date: "So'nggi paytlar",
+        title: "Sog'inch",
+        text: "Sizni juda sog'indim. Bu shunchaki so'z emas — kunlarim ichida bir joy bo'sh turibdi. Bir lahza ko'rish uchun ham har narsaga tayyorman.",
       },
       {
         date: "Bugun",
-        title: "Yangi yoshingiz",
-        text: "Bu yil esa jim turmadim. Bugun siz uchun butun boshli bir olam yasadim — tortlari, shamlari, sovg'alari va yulduzlari bilan. Hammasi bitta jumla uchun: tug'ilgan kuningiz muborak, Dilnura.",
+        title: "Jur'at",
+        text: "Shuning uchun bu safar jim turmadim. Butun gapimni shu sahifaga yozdim. Chunki bir marta bo'lsa ham, ochiq va to'g'ri gaplashishimizni istayman.",
       },
       {
         date: "Oldinda",
-        title: "Keyingi 19-avgust",
-        text: "Va agar ruxsat bersangiz — keyingi tug'ilgan kuningizni ekran orqali emas, ro'paringizda o'tirib tabriklamoqchiman. Tortni birga kesamiz. Shamlarni siz puflaysiz, men esa shunchaki qarab turaman.",
+        title: "Bitta uchrashuv",
+        text: "Men sizdan ko'p narsa so'ramayapman. Faqat bitta uchrashuv — ro'para o'tirib, kelajak va siz xohlagan narsalar haqida suhbatlashaylik. Qolganini o'zingiz hal qilasiz.",
       },
     ],
   },
 
   // ── KINO KABI XABARLAR (so'zma-so'z ochiladi) ───────────────
   messages: [
-    "Yilda bitta kun bor — u faqat sizga tegishli...",
-    "Bugun aynan o'sha kun.",
-    "Va men uni jimgina o'tkazib yubormoqchi emasman.",
-    "Tug'ilgan kuningiz muborak, Dilnura.",
+    "Bir gap bor — uni yillar davomida ichimda saqladim...",
+    "Sizni sog'indim. Rostdan ham, juda.",
+    "Va bir marta ro'paringizda o'tirib aytmoqchiman.",
+    "Meni bir uchrashuvga arzitasizmi, Dilnura?",
   ],
 
   // ── YULDUZLAR ───────────────────────────────────────────────
   stars: {
-    script: "osmondagi sir",
+    script: "sokin bir tilak",
     title: "Yulduzlarni uyg'oting",
-    hint: "Barmog'ingizni uxlab yotgan yulduzlar ustidan yurgizing... ular bugun uchun bir narsa tayyorlagan.",
+    hint: "Barmog'ingizni uxlab yotgan yulduzlar ustidan yurgizing... har birida aytolmagan bir gapim bor.",
     counter: "yulduz uyg'ondi",
-    reveal: "Bugun osmondagi har bir yulduz faqat siz uchun yondi.",
+    reveal: "Shu yulduzlarning har biri bitta narsani takrorlaydi: sizni bir ko'rsam bo'lgani.",
   },
 
-  // ── TUG'ILGAN KUN XATI ──────────────────────────────────────
+  // ── XAT ──────────────────────────────────────────────────────
   letter: {
     script: "muhrlangan, faqat siz uchun",
     title: "Sizga xat",
     cta: "ochish uchun bosing",
     greeting: "Aziz Dilnura,",
     paragraphs: [
-      "Bu xatni yuz marta boshladim va yuz marta o'chirdim — chunki bir yilni, ustiga deyarli sakkiz yilni bir necha satrga sig'dirib bo'lmas ekan.",
-      "Bugun sizning kuningiz. Men sizga uzun tilaklar ro'yxatini yozmoqchi emasman. Faqat shuni bilishingizni istayman: bu dunyo siz tug'ilganingiz uchun menga ancha chiroyliroq ko'rinadi. Sizning kulgingiz, mehringiz, odamlarga bo'lgan munosabatingiz — bularning hech biri oddiy narsa emas.",
-      "Yangi yoshingiz sizga xotirjamlik olib kelsin. Rejalaringiz ro'yobga chiqsin, charchaganingizda dam olishga vaqtingiz bo'lsin, va yoningizda sizni qadrlaydigan odamlar qolsin. Siz buning hammasiga arziysiz — bir kun ham emas, har kuni.",
-      "Va agar shu yil bir marta bo'lsa ham ro'paringizda o'tirib «tug'ilgan kuningiz muborak» deyish nasib qilsa — men uchun bu yilning eng yaxshi kuni bo'ladi.",
+      "Bu xatni yuz marta boshladim va yuz marta o'chirdim — chunki eng muhim gapni aytish eng qiyini ekan. Shuning uchun to'g'ridan aytaman: sizni juda sog'indim, va siz men uchun oddiy bir inson emassiz. Siz mening muhabbimsiz.",
+      "Mendan qo'rqishingizga hech qanday sabab yo'q. Men sizga hech qachon yuk, tashvish yoki bosim bo'lishni istamayman. Aksincha — sizni eng yaqin insonlaringiz qanchalik avaylasa, men ham xuddi shunday, balki undan ham ko'proq himoya qilishni, qadrlashni istayman. Yoningizda o'zingizni xotirjam his qilishingiz men uchun hammasidan muhim.",
+      "Sizdan ko'p narsa so'ramayapman. Faqat bitta uchrashuv. Ro'para o'tirib, kelajak haqida, siz nimalarni xohlashingiz haqida ochiq gaplashaylik. Meni tinglang, o'zingizni ham ayting — shu bo'lsa yetadi.",
+      "Va agar shu uchrashuvdan keyin ham siz uchun hech narsa o'zgarmasa — men buni tushunaman va hurmat qilaman. O'shanda siz xohlaganingizdek, sizni boshqa hech qachon bezovta qilmayman. Bu — va'dam. Lekin bir marta bo'lsa ham ro'paringizda o'tirib bu gaplarni aytish men uchun juda muhim. Bir lahza ko'rish uchun ham har narsaga tayyorman.",
     ],
-    signoff: "Sizning kuningizni har yili eslab yuradigan biri,",
+    signoff: "Sizni chin dildan sog'ingan biri,",
     signature: "Men",
   },
 
@@ -129,214 +131,211 @@ export const content = {
   // ovozli xabar pleyeri o'zi paydo bo'ladi.
   voiceMessage: {
     src: "/audio/voice-message.mp3",
-    label: "Dilnura, tug'ilgan kuningiz uchun ovozimda bir narsa yozib qo'ydim...",
+    label: "Dilnura, yozib bo'lmaydigan gaplarni ovozimda aytdim...",
   },
 
-  // ── TUG'ILGAN KUN ────────────────────────────────────────────
-  // Sayt doim tug'ilgan kun rejimida. `?nobday` — sinash uchun o'chiradi.
+  // ── UCHRASHUV / TAKLIF ──────────────────────────────────────
+  // Sayt doim shu rejimda ochiladi. `?nobday` — sinash uchun o'chiradi.
+  // (Eslatma: pastdagi kalitlar kod ichida ishlatilgani uchun nomi
+  //  o'zgartirilmadi; faqat matnlar taklif ruhida qayta yozildi.)
   birthday: {
-    monthDay: "08-19", // MM-DD — sanoq va kartadagi sana uchun
+    monthDay: "10-03", // uchrashuv sanasi — sanoq shu kungacha teskari sanaydi
 
-    // Ixtiyoriy. Tug'ilgan yilini bilsangiz to'ldiring — masalan "2004-08-19T00:00:00".
-    // To'ldirilsa "siz dunyoga kelganingizga ... kun" sanog'i qo'shimcha ko'rinadi.
     birthDate: null as string | null,
-    // Nechanchi yoshga to'lyapti. Shamlar soni ham shundan olinadi.
-    turning: 22 as number | null,
+    turning: null as number | null,
 
-    // ── Tort sahnasi (saytga kirgan zahoti) ───────────────────
+    // ── Kirish sahnasi (saytga kirgan zahoti) ─────────────────
     intro: {
-      line: "Bugun taqvimdagi eng muhim kun — chunki bugun siz tug'ilgansiz.",
-      cta: "Tortni ko'rish",
-      // {n} — shamlar soni (yoshi). Yosh berilmagan bo'lsa fallback ishlatiladi.
-      candlesTitle: "Siz uchun {n} ta sham",
-      candlesTitleFallback: "Shamlar siz uchun yoqildi",
-      blowHint: "Shamlarni puflab o'chiring — telefonni yaqin tutib, sekin puflasangiz bo'ldi.",
+      line: "Sizga bo'lgan his uchun bitta sham yoqdim. Bir tilak tilab, uni puflab qo'ying.",
+      cta: "Shamni ko'rish",
+      candlesTitle: "Siz uchun bir sham",
+      candlesTitleFallback: "Sham siz uchun yoqildi",
+      blowHint: "Shamni puflab o'chiring — telefonni yaqin tutib, sekin puflasangiz bo'ldi.",
       micButton: "Mikrofonni yoqaman va puflayman",
       micDenied: "Mikrofon ochilmadi — hechqisi yo'q, pastdagini bosib o'chirsangiz ham bo'ladi.",
       tapButton: "yoki shu yerni bosib o'chiring",
-      listening: "Eshitib turibman... puflayvering 🎂",
-      wishHint: "Puflashdan oldin bir tilak tilang.",
-      done: "Tug'ilgan kuningiz muborak, Dilnura",
-      doneNote: "Tilagingiz albatta ro'yobga chiqsin. Men shunga ishonaman.",
-      continue: "Sovg'alarni ochish",
+      listening: "Eshitib turibman... puflayvering 🤍",
+      wishHint: "Puflashdan oldin bir tilak tilang — men ham xuddi shuni tilayapman.",
+      done: "Endi qolgan gaplarni aytsam bo'ladimi, Dilnura?",
+      doneNote: "Tilagingiz ro'yobga chiqsin. Meniki esa — sizni bir ko'rish edi.",
+      continue: "Davom etish",
     },
 
-    // ── Sahifadagi tug'ilgan kun bo'limi ──────────────────────
+    // ── Sahifadagi taklif bo'limi ─────────────────────────────
     section: {
-      script: "19-avgust",
-      title: "Tug'ilgan kuningiz muborak",
-      lead: "Bugun butun dunyo siz uchun bir kunga to'xtab tursin. Men esa shu yerda, faqat siz uchun kichkina bir olam yasadim.",
-      todayLabel: "Bugungi kuningiz boshlanganiga",
-      livedLabel: "Siz dunyoga kelganingizga",
+      script: "bitta iltimos",
+      title: "Meni bir uchrashuvga arzitasizmi?",
+      lead: "Sizdan ko'p narsa emas — faqat bir marta ro'para o'tirib gaplashishni so'rayapman. Shu yerda, faqat siz uchun, hamma gapni ochiq yozdim.",
+      todayLabel: "Sizni oxirgi ko'rmaganimga",
+      livedLabel: "Sizni sog'inganimga",
       livedUnit: "kun",
-      livedTail: "— va ularning har biri uchun rahmat.",
-      turningLabel: "yoshingiz muborak",
+      livedTail: "— va ularning har birida sizni o'yladim.",
+      turningLabel: "bitta uchrashuv, xolos",
     },
 
-    // ── Sakkizta sovg'a qutisi ────────────────────────────────
-    giftsTitle: "Sakkizta quti — deyarli sakkiz yil uchun",
+    // ── Sovg'a emas — va'dalar qutisi ─────────────────────────
+    giftsTitle: "Sizga bergan va'dalarim",
     giftsSubtitle: "Har birini bosib oching. Shoshilmang — ular kutadi.",
     giftOpened: "ochilgan",
     giftClose: "yopish",
-    giftAllOpened: "Sakkizta qutining hammasi ochildi 🎉",
+    giftAllOpened: "Va'dalarning hammasi ochildi 🤍",
     gifts: [
       {
-        title: "Bugun uchun",
-        text: "Tug'ilgan kuningiz muborak, Dilnura. Bugun tug'ilganingiz uchun bu dunyo menga ancha chiroyliroq ko'rinadi.",
+        title: "Hurmat haqida",
+        text: "Nima bo'lishidan qat'i nazar, sizning tanlovingizni hurmat qilaman. Siz hech narsaga majbur emassiz — bu uchrashuv ham faqat siz xohlasangiz bo'ladi.",
       },
       {
-        title: "Kulgingiz uchun",
-        text: "Sizning kulgingiz — men eshitgan eng yaxshi ovoz. Qanchalik charchagan kunim bo'lmasin, o'shani eslasam, yengil tortaman.",
+        title: "Qo'rquv haqida",
+        text: "Mendan qo'rqishingizga hech qanday sabab yo'q. Men sizga tinchlik istayman, tashvish emas. Yonimda o'zingizni bexavotir his qilishingizni xohlayman.",
       },
       {
-        title: "Ko'zlaringiz uchun",
-        text: "Ingliz tili darsida birinchi marta ko'zlaringizni ko'rganman. O'shandan beri hech qaysi qarash menga bunchalik tanish tuyulmagan.",
+        title: "Himoya haqida",
+        text: "Sizni eng yaqin insonlaringiz qanday avaylasa, men ham xuddi shunday himoya qilaman. Sizga yomonlik tilaydigan emas, panoh bo'ladigan odam bo'lishni istayman.",
       },
       {
-        title: "Mehringiz uchun",
-        text: "Siz odamlarga qanday muomala qilishingizni ko'rganman — kichkinalarga ham, kattalarga ham. Mehrni o'rgatib bo'lmaydi; u sizda tug'ma.",
+        title: "Sog'inch haqida",
+        text: "Sizni juda sog'indim. Buni yashirmayman. Bir lahza ko'rish uchun ham har narsaga tayyorman — shuning uchun shu jur'atni topdim.",
       },
       {
-        title: "Kuchingiz uchun",
-        text: "Qiyin kunlaringizni hech kimga bildirmasligingiz — zaiflik emas, kuch. Lekin bilib qo'ying: mendan yashirishingiz shart emas.",
+        title: "Kelajak haqida",
+        text: "Uchrashsak, kelajak haqida — siz nimalarni xohlashingiz haqida ochiq gaplashaylik. Men eshitaman. Siz haqingizda ko'proq bilishni istayman.",
       },
       {
-        title: "Bir va'da",
-        text: "Bu yil sizga hech narsa bilan yuk bo'lmayman. Faqat shuni biling — bir og'iz so'z yetarli, men shu yerdaman.",
+        title: "Erkinligingiz haqida",
+        text: "Agar shu uchrashuvdan keyin ham siz uchun hech narsa o'zgarmasa — siz xohlaganingizdek, sizni boshqa hech qachon bezovta qilmayman. Bu — mening va'dam.",
       },
       {
-        title: "Bir tilak",
-        text: "Yangi yoshingiz sizni o'zingiz orzu qilgan joyga olib borsin. Va o'sha yo'lda, iloji bo'lsa, menga ham bir qadamlik joy qolsin.",
+        title: "Bir iltimos",
+        text: "Faqat bitta uchrashuv so'rayapman. Ro'para o'tirib, ko'zingizga qarab, shu gaplarni o'zim aytishim uchun. Undan ortig'i — sizning ixtiyoringizda.",
       },
       {
-        title: "Oxirgi quti",
-        text: "Sakkizta quti — deyarli sakkiz yil uchun. Har bir yili sizga ayta olmagan gaplarim shu qutilarda edi. Bugun hammasi ochildi.",
+        title: "Oxirgi va'da",
+        text: "Nima javob bersangiz ham, siz men uchun muhabbat bo'lib qolasiz. Sizga rahmat — shu paytgacha, shu satrlarni o'qiganingiz uchun ham.",
       },
     ],
 
-    // ── Tilak qutisi (javob menga Telegramga keladi) ──────────
+    // ── Yozadigan javob (menga Telegramga keladi) ─────────────
     wish: {
       script: "shivirlab ayting",
-      title: "Tilak qutisi",
-      subtitle: "Bugungi tilagingizni shu yerga yozing. U faqat menga keladi — va qo'limdan kelsa, ro'yobga chiqaraman.",
-      placeholder: "Mening tilagim...",
-      send: "Tilakni yuborish",
+      title: "Menga bir og'iz yozing",
+      subtitle: "Ko'nglingizdagini shu yerga yozing. U faqat menga keladi — va men eshitishga tayyorman, javob qanday bo'lsa ham.",
+      placeholder: "Men aytmoqchi bo'lgan narsa...",
+      send: "Yuborish",
       sending: "Yuborilmoqda...",
-      thanks: "Tilagingiz menga yetib keldi 💛",
-      thanksNote: "Endi u ikkovimizning sirimiz. Men esa ustida ishlay boshladim.",
+      thanks: "Xabaringiz menga yetib keldi 🤍",
+      thanksNote: "Rahmat — javob berganingiz o'zi men uchun ko'p narsa.",
     },
 
-    // ── Yuklab olinadigan tabrik kartasi ──────────────────────
+    // ── Yuklab olinadigan karta ────────────────────────────────
     card: {
       script: "esdalik",
-      title: "Tabrik kartangiz",
-      subtitle: "Shu kunning kichkina esdaligi — yuklab oling va saqlab qo'ying.",
+      title: "Kichkina esdalik",
+      subtitle: "Shu sahifaning kichik esdaligi — yuklab oling va saqlab qo'ying.",
       button: "Kartani yuklab olish",
-      saved: "Yuklab olindi 💛",
-      alt: "Tabrik kartasi",
-      greeting: "Tug'ilgan kuningiz muborak,",
-      dateLine: "19 avgust 2026",
-      // {n} — yoshi. `turning` bo'sh bo'lsa bu satr chizilmaydi.
-      ageLine: "{n} yosh",
-      quote: "Ko'zlaringiz kulsin, yuragingiz tinch bo'lsin —\nva bu yil sizga o'zingizga o'xshab mehribon bo'lsin.",
+      saved: "Yuklab olindi 🤍",
+      alt: "Esdalik kartasi",
+      greeting: "Sizni sog'indim,",
+      dateLine: "3 oktabr 2026",
+      ageLine: "",
+      quote: "Bir marta ro'paringizda o'tirsam —\nqolgan hamma gapni ko'zingizga qarab aytaman.",
       signoff: "sizdan bir kun ham voz kechmagan biri",
     },
 
     // ── Telegram/WhatsApp havola ko'rinishi ───────────────────
     share: {
-      title: "Tug'ilgan kuningiz muborak, Dilnura 🎂",
-      description: "Bugun siz uchun bir narsa tayyorladim. Ochib ko'ring ♥",
-      tagline: "Ochib ko'ring — bugun bu yer sizga tegishli",
+      title: "Dilnura, sizga bir gapim bor 🤍",
+      description: "Bir marta ochib o'qing — hammasini shu yerga yozdim ♥",
+      tagline: "Ochib ko'ring — sizga aytilmagan gaplar shu yerda",
     },
 
-    // ── FINAL: keyingi bayramni birga nishonlaymizmi? ─────────
+    // ── FINAL: uchrashamizmi? ─────────────────────────────────
     finale: {
-      lead: "Bugungi kunni faqat bitta narsa yanada chiroyliroq qila oladi...",
-      question: "Bayramni birga nishonlaymizmi?",
-      note: "Dilnura — bu yil sizga tort ham, sham ham ekran orqali yetib bordi. Keyingi safar esa ro'paringizda o'tirib tabriklashni istardim. Bir marta bo'lsa ham.",
-      yes: "HA 🎂",
+      lead: "Endi hammasini aytdim. Bitta savol qoldi...",
+      question: "3-oktabr kuni uchrashamizmi?",
+      note: "Dilnura — hamma gapni ochiq yozdim: sizni sog'inganimni, himoya qilishimni, mendan qo'rqmaslik kerakligini. 3-oktabr kuni bir marta ro'para o'tirib gaplashaylik. Agar keyin ham hech narsa o'zgarmasa — siz xohlaganingizdek, sizni boshqa bezovta qilmayman.",
+      yes: "HA 🤍",
       notYet: "Yo'q",
       nudges: [
-        "hmm... u uyaldi 😊",
+        "hmm... shoshmang, o'ylab ko'ring 😊",
         "bu tugma tanlanishni xohlamayapti...",
-        "ko'rdingizmi? tugma ham javobni biladi...",
-        "ushlay olmaysiz — u mening tarafimda 💛",
-        "shunchaki ha deng... u abadiy qochaveradi 🙂",
+        "faqat bitta uchrashuv-ku...",
+        "ushlay olmaysiz — u mening tarafimda 🤍",
+        "bir marta «ha» deng... ko'p emas 🙂",
       ],
-      yesResponse: "Unda bu yil mening ham eng yaxshi yilim bo'ladi",
+      yesResponse: "Rahmat, Dilnura. Bu ishonch men uchun juda qimmatli.",
     },
 
-    // ── Bayram rejasi (u HA deganidan keyin) ──────────────────
+    // ── Uchrashuv rejasi (u HA deganidan keyin) ───────────────
     party: {
-      intro: "Endi bayramni birga chizamiz. Har bir tanlov — sizniki 🎂",
+      intro: "Unda uchrashuvni birga rejalashtiraylik. Har bir tanlov — sizniki 🤍",
       steps: [
         {
           key: "place",
-          title: "Qayerda nishonlaymiz?",
-          subtitle: "Ayting — men o'sha yerni butun dunyodagi eng chiroyli joyga aylantiraman.",
+          title: "Qayerda uchrashamiz?",
+          subtitle: "O'zingizni bemalol his qiladigan joyni tanlang — men moslashaman.",
           options: [
             "Kichkina, shinam kafe",
-            "Sham yoritilgan restoran",
-            "Ko'l bo'yida, suv sadosi ostida",
-            "Yulduzlar tagida — park",
-            "Uyda — tortni o'zim pishiraman",
+            "Odamlar ko'p, ochiq bir joy",
+            "Ko'l yoki daryo bo'yi",
+            "Park — havoda sayr qilamiz",
+            "O'zingiz tanlagan, xavfsiz joy",
           ],
         },
         {
           key: "when",
           title: "Qachon uchrashamiz?",
-          subtitle: "Siz tanlagan kun — mening yilimning eng go'zal kuni bo'ladi.",
+          subtitle: "Siz qulay bo'lgan kun — mening uchun eng yaxshi kun bo'ladi.",
           options: [],
         },
         {
           key: "cake",
-          title: "Qanaqa tort bo'lsin?",
-          subtitle: "Shamlarni siz puflaysiz — men shunchaki qarab turaman.",
+          title: "Nima haqida gaplashamiz?",
+          subtitle: "Nimadan boshlasak, siz uchun oson bo'ladi?",
           options: [
-            "Shokoladli — qalin va issiq",
-            "Chizkeyk — yengil va nozik",
-            "Medovik — bolali qatlamlar",
-            "Mevali, yengil krem bilan",
-            "Muzqaymoqli tort",
+            "Kelajak — rejalarimiz haqida",
+            "Siz nimalarni xohlaysiz",
+            "O'tgan kunlar, oddiy suhbat",
+            "Savollaringiz — men rostini aytaman",
+            "Shunchaki tanishaylik, boshidan",
           ],
         },
         {
           key: "gift",
-          title: "Sovg'a nima bo'lsin?",
-          subtitle: "Ayting — qolganini men uddalayman.",
+          title: "Yonimda o'zingizni qanday his qilishni istaysiz?",
+          subtitle: "Men shunga qarab bo'laman.",
           options: [
-            "Gullar — juda ko'p gullar",
-            "Kitob — siz sevadigan",
-            "Atir",
-            "Kichkina, lekin ma'noli bir narsa",
-            "Hech narsa — shunchaki vaqtingiz",
+            "Xotirjam va bemalol",
+            "Hech qanday bosimsiz",
+            "Eshitilgan — gapim tinglangan",
+            "Xavfsiz va himoyalangan",
+            "Shunchaki o'zim bo'lib",
           ],
         },
         {
           key: "vibe",
-          title: "Kayfiyat qanday bo'lsin?",
-          subtitle: "Shovqinli bayrammi yoki ikkovimizga yetadigan sokinlikmi?",
+          title: "Uchrashuv qanday bo'lsin?",
+          subtitle: "Qisqami yoki shoshilmasdanmi — o'zingiz ayting.",
           options: [
-            "Sokin — faqat ikkovimiz",
-            "Kichkina davra, yaqin odamlar",
-            "Musiqa, kulgi, sharlar",
-            "Kun botganda — oltin soatda",
-            "Kechasi 🌙 — yulduzlar guvohligida",
+            "Qisqa — bir choy ustida",
+            "Shoshilmasdan, dildan suhbat",
+            "Sayr qilib, yengil gaplashib",
+            "Kun botganda — sokin payt",
+            "O'zingizga qulay bo'lganidek",
           ],
         },
       ],
-      doneTitle: "Bizning bayram rejamiz 🎂",
-      doneSubtitle: "Mana, keyingi tug'ilgan kuningiz shunday bo'ladi. Endi buni haqiqatga aylantirish menga qoldi.",
-      closing: "Kuningizni birga nishonlashga sanoqli kunlar qoldi, Dilnura 🎂",
+      doneTitle: "Bizning uchrashuv rejamiz 🤍",
+      doneSubtitle: "Mana, uchrashuvimiz shunday bo'ladi. Endi buni haqiqatga aylantirish menga qoldi.",
+      closing: "Sizni ko'rishga sanoqli kunlar qoldi, Dilnura 🤍",
       savedNote: "💾 Reja telefoningizga rasm bo'lib saqlandi",
-      cardSubtitle: "Dilnuraning bayrami",
-      cardClosing: "Shamlarni birga puflaymiz 🎂",
+      cardSubtitle: "Bizning uchrashuvimiz",
+      cardClosing: "Ro'para o'tirib gaplashamiz 🤍",
     },
 
     // ── U menga yozadigan javob qutisi ────────────────────────
     reply: {
       title: "Menga bir narsa yuborasizmi?",
-      subtitle: "Yozing, rasm tashlang, video yoki ovozli xabar yuboring — o'zingiz tanlang 💛",
+      subtitle: "Yozing, rasm tashlang, video yoki ovozli xabar yuboring — o'zingiz tanlang 🤍",
       placeholder: "Yuragingizdagini shu yerga yozing...",
       photo: "Rasm",
       video: "Video",
@@ -348,15 +347,15 @@ export const content = {
       remove: "O'chirish",
       send: "Yuborish",
       sentTitle: "Yuborildi — rahmat, Dilnura",
-      sentNote: "Har bir so'zingiz, har bir lahzangiz men uchun qimmatli.",
+      sentNote: "Har bir so'zingiz men uchun qimmatli. Javobingizni kutaman.",
     },
   },
 
-  // Yashirin yuraklar — topib oladigan kichkina sirlar.
+  // Yashirin gaplar — topib oladigan kichkina sirlar.
   secrets: [
-    "Bir sir topdingiz! 19-avgust mening taqvimimdagi yagona qizil sana.",
-    "Yana bir sir: bu saytdagi har bir jumlani yozishdan oldin, sizning kulganingizni tasavvur qilganman.",
-    "Oxirgi sir: bu yil sizga aytadigan tilagimni allaqachon tilab bo'lganman — shamlar sizning oldingizda edi, lekin tilak meniki edi.",
+    "Bir sir topdingiz! Bu sahifadagi har bir jumlani sizni o'ylab yozganman.",
+    "Yana bir sir: sizni bezovta qilishdan qo'rqib, bu gaplarni yillar davomida ichimda saqlaganman.",
+    "Oxirgi sir: men faqat bitta narsani xohlayman — bir marta ro'paringizda o'tirib, shularni o'zim aytishni.",
   ],
 };
 
